@@ -12,7 +12,7 @@ local.properties
 
 # Signing files
 .signing/
-
+git branch -M main
 # User-specific configurations
 .idea/
 *.iml
