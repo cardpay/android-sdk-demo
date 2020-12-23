@@ -11,11 +11,13 @@ Coming soon
 
 #### Using
 
-Just call MobileSdk.bindNewCardForResult(...) //for bankcard binding 
-          MobileSdk.paymentForResult(...) //for payment
-          MobileSdk.paymentForResult(saveCard, ...) //for saved card payment 
+```ruby
+MobileSdk.bindNewCardForResult(...) //for bankcard binding 
+MobileSdk.paymentForResult(...) //for payment
+MobileSdk.paymentForResult(saveCard, ...) //for saved card payment
 
-And wait for result from onActivityResult(...)
+fun onActivityResult(...) // wait for result here
+``` 
 
 ## Documentation
 
