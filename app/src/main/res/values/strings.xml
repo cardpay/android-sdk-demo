@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">UnlimintSdk</string>
+
+    <string name="bind_button_text">Bind bank card</string>
+    <string name="pay_button_text">Pay with bank card</string>
+    <string name="pay_with_token_button_text">Pay with saved bank card</string>
+
+    <string name="card_masked_pan">**** %1$s</string>
+</resources>
