@@ -6,7 +6,7 @@ Unlimint SDK
 - Android 6+
 
 ## Installation
-
+```ruby
 repositories {
     ...
     maven { url "https://nexus.unlimint.com/repository/mobile-sdk/" }
@@ -16,7 +16,7 @@ dependencies {
     implementation "com.unlimint.sdk:mobile-sdk:$sdk_version"
     ...
 }
-
+``` 
 #### Using
 
 ```ruby
