@@ -7,7 +7,15 @@ Unlimint SDK
 
 ## Installation
 
-Coming soon
+repositories {
+    ...
+    maven { url "https://nexus.unlimint.com/repository/mobile-sdk/" }
+}
+dependencies {
+    ...
+    implementation "com.unlimint.sdk:mobile-sdk:$sdk_version"
+    ...
+}
 
 #### Using
 
