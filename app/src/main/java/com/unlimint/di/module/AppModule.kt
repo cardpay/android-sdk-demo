@@ -1,8 +1,8 @@
 package com.unlimint.di.module
 
-import com.unlimint.di.scope.ApplicationScope
 import com.unlimint.data.RepositoryImpl
 import com.unlimint.data.network.NetworkApi
+import com.unlimint.di.scope.ApplicationScope
 import com.unlimint.domain.Repository
 import dagger.Module
 import dagger.Provides
@@ -13,9 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 @Module
 object AppModule {
 
-//    private const val BASE_SERVER_URL = "https://sandbox.cardpay.com/demo-merchant/"
-    private const val BASE_SERVER_URL = "https://demo-merchant.frontend.cardpay-aws.net/"
-
+    private const val BASE_SERVER_URL = "https://sandbox.cardpay.com/demo-merchant/"
 
     @Provides
     @ApplicationScope

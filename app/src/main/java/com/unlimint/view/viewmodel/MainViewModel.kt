@@ -48,7 +48,7 @@ class MainViewModel @Inject constructor(
                         merchantOrder = merchantOrder,
                         cardAccount = cardAccount
                     ),
-                    environment = Environments.PRODUCTION
+                    environment = Environments.SANDBOX
                 )
                 is Result.Error -> _onBindCardError.postValue(result.exception.message)
             }
@@ -78,7 +78,7 @@ class MainViewModel @Inject constructor(
                         cardAccount
                     ),
                     requestCode = paymentRequestCode,
-                    environment = Environments.PRODUCTION
+                    environment = Environments.SANDBOX
                 )
                 is Result.Error -> _onBindCardError.postValue(result.exception.message)
             }
@@ -108,7 +108,7 @@ class MainViewModel @Inject constructor(
                         cardAccount
                     ),
                     requestCode = paymentRequestCode,
-                    environment = Environments.PRODUCTION
+                    environment = Environments.SANDBOX
                 )
                 is Result.Error -> _onBindCardError.postValue(result.exception.message)
             }
