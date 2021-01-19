@@ -13,10 +13,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.unlimint.App
 import com.unlimint.R
 import com.unlimint.sdk.api.MobileSdk
-import com.unlimint.sdk.api.exceptions.MobileSdkBindingDeclineException
-import com.unlimint.sdk.api.exceptions.MobileSdkIllegalStateException
-import com.unlimint.sdk.api.exceptions.MobileSdkPaymentDeclineException
-import com.unlimint.sdk.api.exceptions.MobileSdkServiceUnavailableException
 import com.unlimint.sdk.api.model.Customer
 import com.unlimint.sdk.api.model.MerchantOrder
 import com.unlimint.sdk.api.model.scenario.payment.Amount
@@ -72,10 +68,10 @@ class MainActivity : AppCompatActivity() {
     private fun onBindButtonClick() {
         viewModel.bindCard(
             activity = this,
-            currency = Currency.getInstance("EUR"),
+            currency = Currency.getInstance("USD"),
             customer = Customer(
                 id = "656945944",
-                email = "aleksey.potapov.89@yandex.ru"
+                email = "cardpay.test.mobile@gmail.com"
             ),
             bindRequestCode = BIND_REQUEST_CODE,
             cardAccount = null,
@@ -89,7 +85,7 @@ class MainActivity : AppCompatActivity() {
             merchantName = "merchantName",
             customer = Customer(
                 id = "656945944",
-                email = "aleksey.potapov.89@yandex.ru"
+                email = "cardpay.test.mobile@gmail.com"
             ),
             merchantOrder = MerchantOrder(
                 description = "merchant order description",
@@ -98,7 +94,7 @@ class MainActivity : AppCompatActivity() {
             paymentData = PaymentData(
                 amount = Amount(
                     value = BigDecimal.valueOf(1.0),
-                    currency = Currency.getInstance("EUR")
+                    currency = Currency.getInstance("USD")
                 )
             ),
             cardAccount = null,
@@ -112,7 +108,7 @@ class MainActivity : AppCompatActivity() {
             merchantName = "merchantName",
             customer = Customer(
                 id = "656945944",
-                email = "aleksey.potapov.89@yandex.ru"
+                email = "cardpay.test.mobile@gmail.com"
             ),
             merchantOrder = MerchantOrder(
                 description = "merchant order description",
@@ -121,7 +117,7 @@ class MainActivity : AppCompatActivity() {
             paymentData = PaymentData(
                 amount = Amount(
                     value = BigDecimal.valueOf(1.0),
-                    currency = Currency.getInstance("EUR")
+                    currency = Currency.getInstance("USD")
                 )
             ),
             cardAccount = TokenPayment.CardAccount(
@@ -145,7 +141,6 @@ class MainActivity : AppCompatActivity() {
     private fun handleBinding(resultCode: Int, data: Intent?) {
         when (resultCode) {
             Activity.RESULT_OK -> {
-                toast("Привязка прошла")
                 data?.getStringExtra(MobileSdk.ARG_LAST_4_DIGITS)?.let {
                     boundCardPanTextView.visibility = View.VISIBLE
                     boundCardPanTextView.text = getString(R.string.card_masked_pan, it)
@@ -153,11 +148,7 @@ class MainActivity : AppCompatActivity() {
             }
             Activity.RESULT_CANCELED -> data?.getSerializableExtra(MobileSdk.ARG_EXCEPTION)
                 ?.let {
-                    when (it) {
-                        is MobileSdkServiceUnavailableException -> toast("MobileSdkServiceUnavailableException")
-                        is MobileSdkIllegalStateException -> toast("MobileSdkIllegalStateException")
-                        is MobileSdkBindingDeclineException -> toast("MobileSdkBindingDeclineException")
-                    }
+                    toast((it as Exception).toString())
                 }
         }
     }
@@ -177,11 +168,7 @@ class MainActivity : AppCompatActivity() {
             }
             Activity.RESULT_CANCELED -> data?.getSerializableExtra(MobileSdk.ARG_EXCEPTION)
                 ?.let {
-                    when (it) {
-                        is MobileSdkServiceUnavailableException -> toast("MobileSdkServiceUnavailableException")
-                        is MobileSdkIllegalStateException -> toast("MobileSdkIllegalStateException")
-                        is MobileSdkPaymentDeclineException -> toast("MobileSdkPaymentDeclineException")
-                    }
+                    toast((it as Exception).toString())
                 }
         }
     }

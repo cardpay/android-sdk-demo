@@ -48,14 +48,14 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation fileTree(dir: "libs", include: ["*.jar", "*.aar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation "androidx.core:core-ktx:$core_ktx_version"
     implementation "androidx.appcompat:appcompat:$appcompat_version"
     implementation "androidx.constraintlayout:constraintlayout:$constraintlayout_version"
     testImplementation "junit:junit:$junit_version"
 
-    implementation 'com.unlimint.sdk:mobile-sdk:9999'
+    implementation 'com.unlimint.sdk:mobile-sdk:9997'
 
     implementation "androidx.fragment:fragment-ktx:$fragment_ktx_version"
 

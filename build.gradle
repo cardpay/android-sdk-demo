@@ -32,7 +32,8 @@ buildscript {
         google()
         jcenter()
 
-        maven { url "https://nexus.unlimint.com/repository/mobile-sdk/" }
+        maven { url "https://mobilesdk.cardpay-test.com/repository/mobile-sdk/" }
+//        maven { url "https://nexus.unlimint.com/repository/mobile-sdk/" }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:4.1.1'
@@ -45,7 +46,8 @@ allprojects {
         google()
         jcenter()
 
-        maven { url "https://nexus.unlimint.com/repository/mobile-sdk/" }
+        maven { url "https://mobilesdk.cardpay-test.com/repository/mobile-sdk/" }
+//        maven { url "https://nexus.unlimint.com/repository/mobile-sdk/" }
     }
 }
 
