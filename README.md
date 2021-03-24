@@ -3,13 +3,14 @@ Unlimint SDK
 
 ## Requirements
 
-- Android 6+
+- Android 4.4+
 
 ## Installation
 ```ruby
 repositories {
     ...
-    maven { url "https://nexus.unlimint.com/repository/mobile-sdk/" }
+    
+    maven { url "https://repos.unlimint.io/repository/mobile-sdk/" }
 }
 dependencies {
     ...
