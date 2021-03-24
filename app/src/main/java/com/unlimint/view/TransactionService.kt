@@ -1,5 +1,3 @@
-package com.unlimint.view
-
 import android.app.Notification
 import android.app.PendingIntent
 import android.app.Service
@@ -18,34 +16,61 @@ import com.unlimint.sdk.api.MobileSdk
 
 class TransactionService : Service() {
 
+    private val transactionReceiver = SDKTransactionBroadcastReceiver()
+    private val securityReceiver = SDKSecurityBroadcastReceiver()
+
     override fun onBind(p0: Intent?): IBinder? = null
 
     override fun onCreate() {
         super.onCreate()
         LocalBroadcastManager.getInstance(this)
             .registerReceiver(
-                SDKBroadcastReceiver(),
+                transactionReceiver,
                 IntentFilter(MobileSdk.TransactionData.TRANSACTION_ACTION)
+            )
+
+        LocalBroadcastManager.getInstance(this)
+            .registerReceiver(
+                securityReceiver,
+                IntentFilter(MobileSdk.SecurityData.SECURITY_ACTION)
             )
 
         startForeground(1, getNotification())
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        stopForeground(true)
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(transactionReceiver)
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(securityReceiver)
+    }
+
     /**
-     * Broadcast Receiver that catch message from [MobileSdk]
+     * Broadcast Receiver that catch transaction message from [MobileSdk]
      **/
-    private class SDKBroadcastReceiver : BroadcastReceiver() {
+    private class SDKTransactionBroadcastReceiver : BroadcastReceiver() {
         override fun onReceive(cxt: Context?, intent: Intent?) {
             val transactionId = intent?.getStringExtra(MobileSdk.TransactionData.TRANSACTION_ID)
             Log.d("UnlimintSdkApp", "transactionId = $transactionId")
+        }
+    }
 
-            val insecure =
-                intent?.getBooleanExtra(MobileSdk.TransactionData.INSECURE_EVENT, false) ?: false
-            if (insecure) {
-                val message = "Merchant message: Device is insecure"
-                Toast.makeText(cxt, message, Toast.LENGTH_SHORT).show()
-                Log.d("UnlimintSdkApp", message)
-            }
+    /**
+     * Broadcast Receiver that catch security message from [MobileSdk]
+     **/
+    private class SDKSecurityBroadcastReceiver : BroadcastReceiver() {
+        override fun onReceive(cxt: Context?, intent: Intent?) {
+            val securityMessage =
+                when (intent?.getStringExtra(MobileSdk.SecurityData.SECURITY_EXTRA).orEmpty()) {
+                    MobileSdk.SecurityData.SECURE_EVENT -> "Security check is successfull"
+                    MobileSdk.SecurityData.MAYBE_INSECURE_EVENT -> "Device is maybe rooted"
+                    MobileSdk.SecurityData.INSECURE_EVENT -> "Device is insecure"
+                    else -> null
+                }
+
+            val message = "Merchant message: $securityMessage"
+            Toast.makeText(cxt, message, Toast.LENGTH_SHORT).show()
+            Log.d("UnlimintSdkApp", message)
         }
     }
 
