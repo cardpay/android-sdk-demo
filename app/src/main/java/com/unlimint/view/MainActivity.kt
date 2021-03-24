@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.unlimint.App
 import com.unlimint.R
 import com.unlimint.sdk.api.MobileSdk
+import com.unlimint.sdk.api.exceptions.*
 import com.unlimint.sdk.api.model.Customer
 import com.unlimint.sdk.api.model.MerchantOrder
 import com.unlimint.sdk.api.model.scenario.payment.Amount
@@ -148,7 +149,13 @@ class MainActivity : AppCompatActivity() {
             }
             Activity.RESULT_CANCELED -> data?.getSerializableExtra(MobileSdk.ARG_EXCEPTION)
                 ?.let {
-                    toast((it as Exception).toString())
+                    when (it) {
+                        is MobileSdkServiceUnavailableException -> toast("Server error")
+                        is MobileSdkIllegalStateException -> toast("Internal error")
+                        is MobileSdkBindingDeclineException -> toast("Failed binding")
+                        is MobileSdkSecurityException -> toast(it.message!!)
+                        is MobileSdkUnauthorizedException -> toast(it.message!!)
+                    }
                 }
         }
     }
@@ -168,7 +175,13 @@ class MainActivity : AppCompatActivity() {
             }
             Activity.RESULT_CANCELED -> data?.getSerializableExtra(MobileSdk.ARG_EXCEPTION)
                 ?.let {
-                    toast((it as Exception).toString())
+                    when (it) {
+                        is MobileSdkServiceUnavailableException -> toast("Server error")
+                        is MobileSdkIllegalStateException -> toast("Internal error")
+                        is MobileSdkBindingDeclineException -> toast("Failed payment")
+                        is MobileSdkSecurityException -> toast(it.message!!)
+                        is MobileSdkUnauthorizedException -> toast(it.message!!)
+                    }
                 }
         }
     }

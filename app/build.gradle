@@ -53,9 +53,10 @@ dependencies {
     implementation "androidx.core:core-ktx:$core_ktx_version"
     implementation "androidx.appcompat:appcompat:$appcompat_version"
     implementation "androidx.constraintlayout:constraintlayout:$constraintlayout_version"
+    implementation 'com.google.android.material:material:1.4.0-alpha01'
     testImplementation "junit:junit:$junit_version"
 
-    implementation 'com.unlimint.sdk:mobile-sdk:9997'
+    implementation 'com.unlimint.sdk:mobile-sdk:1.4.4-test1'
 
     implementation "androidx.fragment:fragment-ktx:$fragment_ktx_version"
 
