@@ -5,7 +5,9 @@ import androidx.lifecycle.ViewModelProvider
 import com.unlimint.di.scope.ApplicationScope
 import com.unlimint.di.viewmodel.ViewModelFactory
 import com.unlimint.di.viewmodel.ViewModelKey
-import com.unlimint.view.viewmodel.MainViewModel
+import com.unlimint.view.viewmodel.HomeScreenViewModel
+import com.unlimint.view.viewmodel.PaymentMethodScreenViewModel
+import com.unlimint.view.viewmodel.PaymentWithTokenScreenViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -20,6 +22,23 @@ abstract class ViewModelModule {
     @Binds
     @IntoMap
     @ApplicationScope
-    @ViewModelKey(MainViewModel::class)
-    abstract fun bindViewModel(viewModel: MainViewModel): ViewModel
+    @ViewModelKey(HomeScreenViewModel::class)
+    abstract fun bindHomeScreenViewModel(viewModel: HomeScreenViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ApplicationScope
+    @ViewModelKey(PaymentMethodScreenViewModel::class)
+    abstract fun bindPaymentMethodScreenViewModel(
+        viewModel: PaymentMethodScreenViewModel
+    ): ViewModel
+
+    @Binds
+    @IntoMap
+    @ApplicationScope
+    @ViewModelKey(PaymentWithTokenScreenViewModel::class)
+    abstract fun bindPaymentWithTokenScreenViewModel(
+        viewModel: PaymentWithTokenScreenViewModel
+    ): ViewModel
+
 }

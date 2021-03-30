@@ -3,7 +3,9 @@ package com.unlimint.di.component
 import com.unlimint.di.module.ApplicationModule
 import com.unlimint.di.scope.ApplicationScope
 import com.unlimint.App
-import com.unlimint.view.MainActivity
+import com.unlimint.view.HomeScreenFragment
+import com.unlimint.view.PaymentMethodFragment
+import com.unlimint.view.PaymentWithTokenFragment
 import dagger.BindsInstance
 import dagger.Component
 
@@ -14,7 +16,9 @@ import dagger.Component
 @ApplicationScope
 interface ApplicationComponent {
 
-    fun inject(a: MainActivity)
+    fun inject(homeScreenFragment: HomeScreenFragment)
+    fun inject(paymentMethodFragment: PaymentMethodFragment)
+    fun inject(paymentMethodFragment: PaymentWithTokenFragment)
 
     @Component.Builder
     interface Builder {

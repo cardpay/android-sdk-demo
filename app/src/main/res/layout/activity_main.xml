@@ -1,83 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="@dimen/space_x1"
+    android:orientation="vertical"
     tools:context=".view.MainActivity">
 
-    <LinearLayout
-        android:id="@+id/button_container"
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@id/payment_button_container"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed">
+        android:layout_height="wrap_content" />
 
-        <TextView
-            android:id="@+id/bound_card_pan"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:drawablePadding="@dimen/space_x1"
-            android:textSize="@dimen/H3"
-            android:visibility="invisible"
-            tools:text="**** 1234" />
-
-        <Button
-            android:id="@+id/bind_button"
-            style="@style/Widget.AppCompat.Button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/bind_button_text" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/payment_button_container"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_x1"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@id/pay_with_token_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button_container"
-        app:layout_constraintVertical_chainStyle="packed">
+        android:layout_height="match_parent"
+        tools:context=".view.MainActivity">
+    </androidx.fragment.app.FragmentContainerView>
 
-        <TextView
-            android:id="@+id/paid_card_pan"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:drawablePadding="@dimen/space_x1"
-            android:textSize="@dimen/H3"
-            android:visibility="invisible"
-            tools:text="**** 1234" />
-
-        <Button
-            android:id="@+id/pay_button"
-            style="@style/Widget.AppCompat.Button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/pay_button_text" />
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/pay_with_token_button"
-        style="@style/Widget.AppCompat.Button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_x1"
-        android:text="@string/pay_with_token_button_text"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/payment_button_container"
-        app:layout_constraintVertical_chainStyle="packed" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

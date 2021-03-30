@@ -4,6 +4,17 @@
     <string name="bind_button_text">Bind bank card</string>
     <string name="pay_button_text">Pay with bank card</string>
     <string name="pay_with_token_button_text">Pay with saved bank card</string>
-
     <string name="card_masked_pan">**** %1$s</string>
+    <string name="home_screen_title">Breaking Rick &amp; Morty</string>
+    <string name="home_screen_text">A very bright comet passing near the Earth. Circulation period — 112 years</string>
+    <string name="home_screen_price">Price: <b>352.00 USD</b></string>
+    <string name="main_button_text">Buy</string>
+    <string name="button_link_to_card_text">Link a bank card</string>
+    <string name="section_payment_title">Bank card</string>
+    <string name="section_payment_with_token_title">Bank card token</string>
+    <string name="token_input_field_text">Your token</string>
+    <string name="button_continue_with_token_text">Continue</string>
+    <string name="home_screen_toolbar_title">Unlimint SDK</string>
+    <string name="payment_methods_toolbar_title"/>
+    <string name="payment_with_token_toolbar_title">Payment token</string>
 </resources>
