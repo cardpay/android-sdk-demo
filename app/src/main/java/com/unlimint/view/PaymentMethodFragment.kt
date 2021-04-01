@@ -72,7 +72,7 @@ class PaymentMethodFragment : Fragment() {
         _binding = null
     }
 
-    private fun onPaymentButtonClick(activity:AppCompatActivity) {
+    private fun onPaymentButtonClick(activity: AppCompatActivity) {
         viewModel.pay(
             activity = activity,
             merchantName = "merchantName",

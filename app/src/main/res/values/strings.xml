@@ -5,8 +5,8 @@
     <string name="pay_button_text">Pay with bank card</string>
     <string name="pay_with_token_button_text">Pay with saved bank card</string>
     <string name="card_masked_pan">**** %1$s</string>
-    <string name="home_screen_title">Breaking Rick &amp; Morty</string>
-    <string name="home_screen_text">A very bright comet passing near the Earth. Circulation period — 112 years</string>
+    <string name="home_screen_title">Casual sneakers</string>
+    <string name="home_screen_text">Easy to get on and wear all day. Keeping you comfortable as you run. Lightweight and responsive, breathable, and secure.</string>
     <string name="home_screen_price">Price: <b>352.00 USD</b></string>
     <string name="main_button_text">Buy</string>
     <string name="button_link_to_card_text">Link a bank card</string>
