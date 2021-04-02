@@ -44,7 +44,6 @@ class HomeScreenFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
         val activity = requireActivity() as? AppCompatActivity ?: throw IllegalStateException()
 
         (activity.application as App).appComponent?.inject(this)
