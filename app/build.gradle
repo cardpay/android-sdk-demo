@@ -64,6 +64,9 @@ dependencies {
 
     implementation "androidx.fragment:fragment-ktx:$fragment_ktx_version"
 
+    //RecyclerView
+    implementation "androidx.recyclerview:recyclerview:$recyclerview_version"
+
     //Retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
 

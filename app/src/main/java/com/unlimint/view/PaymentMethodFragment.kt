@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.unlimint.App
 import com.unlimint.R
 import com.unlimint.databinding.FragmentPaymentMethodsLayoutBinding
@@ -17,6 +18,7 @@ import com.unlimint.sdk.api.model.Customer
 import com.unlimint.sdk.api.model.MerchantOrder
 import com.unlimint.sdk.api.model.scenario.payment.Amount
 import com.unlimint.sdk.api.model.scenario.payment.PaymentData
+import com.unlimint.utils.RecyclerViewClickListener
 import com.unlimint.view.MainActivity.Companion.PAY_REQUEST_CODE
 import com.unlimint.view.viewmodel.PaymentMethodScreenViewModel
 import java.lang.IllegalStateException
@@ -33,6 +35,7 @@ class PaymentMethodFragment : Fragment() {
 
     private var _binding: FragmentPaymentMethodsLayoutBinding? = null
     private val binding get() = _binding!!
+    private lateinit var linearLayoutManager: LinearLayoutManager
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -49,20 +52,42 @@ class PaymentMethodFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val activity = requireActivity() as? AppCompatActivity ?: throw IllegalStateException()
-
         (activity.application as App).appComponent?.inject(this)
 
-        binding.paymentButton.setOnClickListener {
-            activity.startService(TransactionService.getNewIntent(activity))
-            onPaymentButtonClick(activity)
-        }
-        binding.paymentWithTokenButton.setOnClickListener {
-            activity.navigateTo(PaymentWithTokenFragment())
-        }
+        val methodPaymentName = getString(R.string.method_payment_name)
+        val methodPaymentWithTokenName = getString(R.string.method_payment_with_token_name)
+
+        val paymentMethods: List<String> = listOf(
+            methodPaymentName,
+            methodPaymentWithTokenName
+        )
+
+        val recyclerViewAdapter = PaymentMethodsRecyclerAdapter(paymentMethods)
+
+        linearLayoutManager = LinearLayoutManager(requireActivity())
+        binding.recyclerView.layoutManager = linearLayoutManager
+        binding.recyclerView.adapter = recyclerViewAdapter
+        binding.recyclerView.addItemDecoration(
+            DividerItemDecorator(R.drawable.divider)
+        )
+
+        recyclerViewAdapter.clickListeners = listOf(
+            RecyclerViewClickListener(defaultInterval = 4000) { methodName ->
+                if (methodName == methodName) {
+                    activity.startService(TransactionService.getNewIntent(activity))
+                    onPaymentButtonClick(activity)
+                }
+            },
+            RecyclerViewClickListener() { methodName ->
+                if (methodName == methodPaymentWithTokenName) {
+                    activity.navigateTo(PaymentWithTokenFragment())
+                }
+            })
+
         subscribeToErrors()
 
         val toolBar = activity.supportActionBar ?: return
-        toolBar.setTitle(R.string.payment_methods_toolbar_title)
+        toolBar.title = ""
         toolBar.setDisplayHomeAsUpEnabled(true)
     }
 
