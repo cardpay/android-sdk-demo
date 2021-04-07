@@ -8,13 +8,12 @@
     <string name="home_screen_title">Casual sneakers</string>
     <string name="home_screen_text">Easy to get on and wear all day. Keeping you comfortable as you run. Lightweight and responsive, breathable, and secure.</string>
     <string name="home_screen_price">Price: <b>352.00 USD</b></string>
-    <string name="main_button_text">Buy</string>
+    <string name="main_button_text">Pay</string>
     <string name="button_link_to_card_text">Link a bank card</string>
-    <string name="section_payment_title">Bank card</string>
-    <string name="section_payment_with_token_title">Bank card token</string>
+    <string name="method_payment_name">Bank card</string>
+    <string name="method_payment_with_token_name">Bank card token</string>
     <string name="token_input_field_text">Your token</string>
     <string name="button_continue_with_token_text">Continue</string>
     <string name="home_screen_toolbar_title">Unlimint SDK</string>
-    <string name="payment_methods_toolbar_title"/>
     <string name="payment_with_token_toolbar_title">Payment token</string>
 </resources>
