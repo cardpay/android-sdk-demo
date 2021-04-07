@@ -73,7 +73,7 @@ class PaymentMethodFragment : Fragment() {
 
         recyclerViewAdapter.clickListeners = listOf(
             RecyclerViewClickListener(defaultInterval = 4000) { methodName ->
-                if (methodName == methodName) {
+                if (methodName == methodPaymentName) {
                     activity.startService(TransactionService.getNewIntent(activity))
                     onPaymentButtonClick(activity)
                 }

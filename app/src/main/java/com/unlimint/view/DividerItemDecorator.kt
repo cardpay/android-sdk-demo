@@ -4,14 +4,14 @@ import android.graphics.Canvas
 import androidx.annotation.DrawableRes
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.unlimint.utils.convertDpToPx
+import com.unlimint.utils.px
 
 class DividerItemDecorator(@DrawableRes val dividerRes: Int) : RecyclerView.ItemDecoration() {
 
     override fun onDrawOver(c: Canvas, parent: RecyclerView) {
         val divider = ContextCompat.getDrawable(parent.context, dividerRes) ?: return
 
-        val dividerLeft = parent.paddingLeft + convertDpToPx(DIVIDER_LEFT_MARGIN, parent.context)
+        val dividerLeft = parent.paddingLeft + DIVIDER_LEFT_MARGIN.px(parent.context)
         val dividerRight = parent.width - parent.paddingRight
         val childCount = parent.childCount
 
