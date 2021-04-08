@@ -7,4 +7,6 @@
     <color name="color_material_button">#C9F73A</color>
     <color name="color_disabled_material_button">#F2F2F2</color>
     <color name="gray">#E5E5E5</color>
+    <color name="description_text_color">#808080</color>
+    <color name="toolbar_home_button">#346BD7</color>
 </resources>

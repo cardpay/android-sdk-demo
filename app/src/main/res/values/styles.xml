@@ -32,6 +32,7 @@
 
     <style name="SdkDemoButtonStyle" parent="Widget.MaterialComponents.Button">
         <item name="fontFamily">@font/inter_regular</item>
+        <item name="android:minHeight">44dp</item>
         <item name="cornerRadius">4dp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@drawable/button_text_selector</item>
@@ -45,5 +46,10 @@
         <item name="android:layout_marginStart">@dimen/space_x2</item>
         <item name="android:layout_marginEnd">@dimen/space_x2</item>
     </style>
+
+    <style name="ToolbarColoredBackArrow" parent="AppTheme">
+        <item name="android:textColorSecondary">@color/toolbar_home_button</item>
+    </style>
+
 
 </resources>

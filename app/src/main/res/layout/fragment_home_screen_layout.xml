@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/space_x3"
         android:textStyle="bold"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:text="@string/home_screen_title"
         app:layout_constraintTop_toBottomOf="@id/mainView"
         app:layout_constraintStart_toStartOf="parent" />
@@ -34,6 +34,7 @@
         android:layout_marginTop="@dimen/space_x1.25"
         android:textSize="@dimen/H3"
         android:text="@string/home_screen_text"
+        android:textColor="@color/description_text_color"
         app:layout_constraintTop_toBottomOf="@id/title"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -52,7 +53,7 @@
         android:id="@+id/buyButton"
         style="@style/SdkDemoButtonStyle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@id/bankCardButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
