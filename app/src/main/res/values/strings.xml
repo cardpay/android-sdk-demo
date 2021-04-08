@@ -7,7 +7,7 @@
     <string name="card_masked_pan">**** %1$s</string>
     <string name="home_screen_title">Casual sneakers</string>
     <string name="home_screen_text">Easy to get on and wear all day. Keeping you comfortable as you run. Lightweight and responsive, breathable, and secure.</string>
-    <string name="home_screen_price">Price: <b>352.00 USD</b></string>
+    <string name="home_screen_price"><font color="#808080">Price:</font> <b>352.00 USD</b></string>
     <string name="main_button_text">Pay</string>
     <string name="button_link_to_card_text">Link a bank card</string>
     <string name="method_payment_name">Bank card</string>

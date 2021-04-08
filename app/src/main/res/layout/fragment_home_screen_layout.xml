@@ -52,8 +52,6 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/buyButton"
         style="@style/SdkDemoButtonStyle"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@id/bankCardButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -62,7 +60,8 @@
     <TextView
         android:id="@+id/bankCardButton"
         style="@style/SdkDemoTextViewStyle"
-        android:layout_width="match_parent"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_marginEnd="0dp"

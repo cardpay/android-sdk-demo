@@ -18,6 +18,7 @@ import com.unlimint.sdk.api.model.MerchantOrder
 import com.unlimint.sdk.api.model.scenario.payment.Amount
 import com.unlimint.sdk.api.model.scenario.payment.PaymentData
 import com.unlimint.sdk.api.model.scenario.payment.TokenPayment
+import com.unlimint.utils.setOnSingleClickListener
 import com.unlimint.view.MainActivity.Companion.PAY_REQUEST_CODE
 import com.unlimint.view.viewmodel.PaymentWithTokenScreenViewModel
 import java.lang.IllegalStateException
@@ -60,7 +61,7 @@ class PaymentWithTokenFragment : Fragment() {
             binding.buyButton.isEnabled = length > 0
         }
 
-        binding.buyButton.setOnClickListener {
+        binding.buyButton.setOnSingleClickListener {
             activity.startService(TransactionService.getNewIntent(activity))
             onPaymentWithTokenButtonClick(activity)
         }

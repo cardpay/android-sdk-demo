@@ -14,6 +14,7 @@ import com.unlimint.R
 import com.unlimint.databinding.FragmentHomeScreenLayoutBinding
 import com.unlimint.navigation.NavigationHelper.navigateTo
 import com.unlimint.sdk.api.model.Customer
+import com.unlimint.utils.setOnSingleClickListener
 import com.unlimint.view.MainActivity.Companion.BIND_REQUEST_CODE
 import com.unlimint.view.viewmodel.HomeScreenViewModel
 import java.lang.IllegalStateException
@@ -51,7 +52,7 @@ class HomeScreenFragment : Fragment() {
         binding.buyButton.setOnClickListener {
             activity.navigateTo(PaymentMethodFragment())
         }
-        binding.bankCardButton.setOnClickListener {
+        binding.bankCardButton.setOnSingleClickListener {
             activity.startService(TransactionService.getNewIntent(activity))
             onBindButtonClick(activity)
         }
