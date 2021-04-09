@@ -49,7 +49,7 @@
         app:layout_constraintTop_toBottomOf="@id/text"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <com.google.android.material.button.MaterialButton
+    <Button
         android:id="@+id/buyButton"
         style="@style/SdkDemoButtonStyle"
         app:layout_constraintBottom_toTopOf="@id/bankCardButton"

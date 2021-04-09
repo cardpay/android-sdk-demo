@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"/>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.button.MaterialButton
+    <Button
         android:id="@+id/buyButton"
         style="@style/SdkDemoButtonStyle"
         android:layout_marginTop="@dimen/space_x2"

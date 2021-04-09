@@ -31,10 +31,11 @@
         <item name="android:layout_marginEnd">@dimen/space_x2</item>
     </style>
 
-    <style name="SdkDemoButtonStyle" parent="Widget.MaterialComponents.Button">
+    <style name="SdkDemoButtonStyle" parent="Widget.AppCompat.Button">
         <item name="fontFamily">@font/inter_regular</item>
-        <item name="android:layout_height">64dp</item>
+        <item name="android:layout_height">44dp</item>
         <item name="android:layout_width">match_parent</item>
+        <item name="android:stateListAnimator">@null</item>
         <item name="cornerRadius">4dp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@drawable/button_text_selector</item>
