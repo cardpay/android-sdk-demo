@@ -16,18 +16,15 @@ import dagger.multibindings.IntoMap
 abstract class ViewModelModule {
 
     @Binds
-    @ApplicationScope
     abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory
 
     @Binds
     @IntoMap
-    @ApplicationScope
     @ViewModelKey(HomeScreenViewModel::class)
     abstract fun bindHomeScreenViewModel(viewModel: HomeScreenViewModel): ViewModel
 
     @Binds
     @IntoMap
-    @ApplicationScope
     @ViewModelKey(PaymentMethodScreenViewModel::class)
     abstract fun bindPaymentMethodScreenViewModel(
         viewModel: PaymentMethodScreenViewModel
@@ -35,7 +32,6 @@ abstract class ViewModelModule {
 
     @Binds
     @IntoMap
-    @ApplicationScope
     @ViewModelKey(PaymentWithTokenScreenViewModel::class)
     abstract fun bindPaymentWithTokenScreenViewModel(
         viewModel: PaymentWithTokenScreenViewModel
