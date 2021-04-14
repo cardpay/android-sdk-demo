@@ -45,6 +45,10 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    buildFeatures{
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -59,6 +63,9 @@ dependencies {
     implementation 'com.unlimint.sdk:mobile-sdk:1.4.6'
 
     implementation "androidx.fragment:fragment-ktx:$fragment_ktx_version"
+
+    //RecyclerView
+    implementation "androidx.recyclerview:recyclerview:$recyclerview_version"
 
     //Retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
