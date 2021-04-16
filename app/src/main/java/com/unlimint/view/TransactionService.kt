@@ -114,7 +114,6 @@ class TransactionService : Service() {
 
         return notificationBuilder
             .setContentTitle("Click to close SDK")
-            .setSmallIcon(R.drawable.ic_notification_logo)
             .setContentIntent(pendingIntent)
             .setAutoCancel(true)
             .build()

@@ -5,11 +5,11 @@ apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 30
-    buildToolsVersion "30.0.2"
+    buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "com.unlimint.example"
-        minSdkVersion 23
+        minSdkVersion 21
         targetSdkVersion 30
         versionCode 2
         versionName "1.0"
@@ -18,16 +18,18 @@ android {
     }
 
     buildTypes {
+        release {
+            minifyEnabled true
+            debuggable false
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'),
+                    'proguard-rules.pro',
+                    'retrofit-proguard-rules.pro',
+                    'gson-proguard-rules.pro'
+        }
         debug {
             minifyEnabled false
-            shrinkResources false
             debuggable true
-        }
-        release {
-            debuggable false
-            minifyEnabled true
-            shrinkResources true
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 
