@@ -134,43 +134,15 @@ $dokka.location:com.unlimint.sdk.api/MobileSdk.TransactionData/TRANSACTION_ID/#/
 $dokka.location:com.unlimint.sdk.api/MobileSdk///PointingToDeclaration/sdk/com.unlimint.sdk.api/-mobile-sdk/index.md
 $dokka.location:com.unlimint.sdk.api/MobileSdk/ARG_EXCEPTION/#/PointingToDeclaration/sdk/com.unlimint.sdk.api/-mobile-sdk/-a-r-g_-e-x-c-e-p-t-i-o-n.md
 $dokka.location:com.unlimint.sdk.api/MobileSdk/ARG_LAST_4_DIGITS/#/PointingToDeclaration/sdk/com.unlimint.sdk.api/-mobile-sdk/-a-r-g_-l-a-s-t_4_-d-i-g-i-t-s.md
-$dokka.location:com.unlimint.sdk.di.module////PointingToDeclaration/sdk/com.unlimint.sdk.di.module/index.md
-$dokka.location:com.unlimint.sdk.di.module//getRetrofitApi/#java.lang.Class[TypeParam(bounds=[kotlin.Any?])]/PointingToDeclaration/sdk/com.unlimint.sdk.di.module/get-retrofit-api.md
-$dokka.location:com.unlimint.sdk.scenario.payment.domain////PointingToDeclaration/sdk/com.unlimint.sdk.scenario.payment.domain/index.md
-$dokka.location:com.unlimint.sdk.scenario.payment.domain/RedirectUrl///PointingToDeclaration/sdk/com.unlimint.sdk.scenario.payment.domain/-redirect-url/index.md
-$dokka.location:com.unlimint.sdk.scenario.payment.domain/RedirectUrl/isRedirectUrlValid/#kotlin.String?/PointingToDeclaration/sdk/com.unlimint.sdk.scenario.payment.domain/-redirect-url/is-redirect-url-valid.md
-$dokka.location:com.unlimint.sdk.scenario.payment.domain/RedirectUrl/isReturnUrlValid/#kotlin.String/PointingToDeclaration/sdk/com.unlimint.sdk.scenario.payment.domain/-redirect-url/is-return-url-valid.md
-$dokka.location:com.unlimint.sdk.util.data.random////PointingToDeclaration/sdk/com.unlimint.sdk.util.data.random/index.md
-$dokka.location:com.unlimint.sdk.util.data.random//getRandomString/#kotlin.ranges.IntRange/PointingToDeclaration/sdk/com.unlimint.sdk.util.data.random/get-random-string.md
-$dokka.location:com.unlimint.sdk.util.data.random/Randomizable///PointingToDeclaration/sdk/com.unlimint.sdk.util.data.random/-randomizable/index.md
-$dokka.location:com.unlimint.sdk.util.data.random/Randomizable/randomize/#/PointingToDeclaration/sdk/com.unlimint.sdk.util.data.random/-randomizable/randomize.md
-$dokka.location:com.unlimint.sdk.util.security.emulator////PointingToDeclaration/sdk/com.unlimint.sdk.util.security.emulator/index.md
-$dokka.location:com.unlimint.sdk.util.security.emulator/Detector.Companion///PointingToDeclaration/sdk/com.unlimint.sdk.util.security.emulator/-detector/-companion/index.md
-$dokka.location:com.unlimint.sdk.util.security.emulator/Detector.Companion/deviceInfo/#/PointingToDeclaration/sdk/com.unlimint.sdk.util.security.emulator/-detector/-companion/device-info.md
-$dokka.location:com.unlimint.sdk.util.security.emulator/Detector.Companion/with/#android.content.Context/PointingToDeclaration/sdk/com.unlimint.sdk.util.security.emulator/-detector/-companion/with.md
-$dokka.location:com.unlimint.sdk.util.security.emulator/Detector.OnDetectorListener///PointingToDeclaration/sdk/com.unlimint.sdk.util.security.emulator/-detector/-on-detector-listener/index.md
-$dokka.location:com.unlimint.sdk.util.security.emulator/Detector.OnDetectorListener/onResult/#kotlin.Boolean/PointingToDeclaration/sdk/com.unlimint.sdk.util.security.emulator/-detector/-on-detector-listener/on-result.md
-$dokka.location:com.unlimint.sdk.util.security.emulator/Detector///PointingToDeclaration/sdk/com.unlimint.sdk.util.security.emulator/-detector/index.md
-$dokka.location:com.unlimint.sdk.util.security.emulator/Detector/addPackageName/#kotlin.String/PointingToDeclaration/sdk/com.unlimint.sdk.util.security.emulator/-detector/add-package-name.md
-$dokka.location:com.unlimint.sdk.util.security.emulator/Detector/addPackageName/#kotlin.collections.List[kotlin.String]?/PointingToDeclaration/sdk/com.unlimint.sdk.util.security.emulator/-detector/add-package-name.md
-$dokka.location:com.unlimint.sdk.util.security.emulator/Detector/detect/#com.unlimint.sdk.util.security.emulator.Detector.OnDetectorListener/PointingToDeclaration/sdk/com.unlimint.sdk.util.security.emulator/-detector/detect.md
-$dokka.location:com.unlimint.sdk.util.security.emulator/Detector/isCheckPackage/#/PointingToDeclaration/sdk/com.unlimint.sdk.util.security.emulator/-detector/is-check-package.md
-$dokka.location:com.unlimint.sdk.util.security.emulator/Detector/isCheckTelephony/#/PointingToDeclaration/sdk/com.unlimint.sdk.util.security.emulator/-detector/is-check-telephony.md
-$dokka.location:com.unlimint.sdk.util.security.emulator/Detector/isDebug/#/PointingToDeclaration/sdk/com.unlimint.sdk.util.security.emulator/-detector/is-debug.md
-$dokka.location:com.unlimint.sdk.util.security.emulator/Detector/packageNameList/#/PointingToDeclaration/sdk/com.unlimint.sdk.util.security.emulator/-detector/package-name-list.md
-$dokka.location:com.unlimint.sdk.util.security.emulator/Detector/setCheckPackage/#kotlin.Boolean/PointingToDeclaration/sdk/com.unlimint.sdk.util.security.emulator/-detector/set-check-package.md
-$dokka.location:com.unlimint.sdk.util.security.emulator/Detector/setCheckTelephony/#kotlin.Boolean/PointingToDeclaration/sdk/com.unlimint.sdk.util.security.emulator/-detector/set-check-telephony.md
-$dokka.location:com.unlimint.sdk.util.security.emulator/Detector/setDebug/#kotlin.Boolean/PointingToDeclaration/sdk/com.unlimint.sdk.util.security.emulator/-detector/set-debug.md
-$dokka.location:com.unlimint.sdk.util.ui.view////PointingToDeclaration/sdk/com.unlimint.sdk.util.ui.view/index.md
-$dokka.location:com.unlimint.sdk.util.ui.view//hideKeyboard/androidx.fragment.app.Fragment#/PointingToDeclaration/sdk/com.unlimint.sdk.util.ui.view/hide-keyboard.md
+$dokka.location:com.unlimint.sdk.api/MobileSdkInterface///PointingToDeclaration/sdk/com.unlimint.sdk.api/-mobile-sdk-interface/index.md
+$dokka.location:com.unlimint.sdk.api/MobileSdkInterface/bindNewCardForResult/#androidx.appcompat.app.AppCompatActivity#kotlin.String#com.unlimint.sdk.api.model.scenario.binding.Binding.Data#Environments#kotlin.Int/PointingToDeclaration/sdk/com.unlimint.sdk.api/-mobile-sdk-interface/bind-new-card-for-result.md
+$dokka.location:com.unlimint.sdk.api/MobileSdkInterface/close/#android.content.Context/PointingToDeclaration/sdk/com.unlimint.sdk.api/-mobile-sdk-interface/close.md
+$dokka.location:com.unlimint.sdk.api/MobileSdkInterface/paymentForResult/#androidx.appcompat.app.AppCompatActivity#kotlin.String#com.unlimint.sdk.api.model.scenario.payment.Payment.Data#Environments#kotlin.Int/PointingToDeclaration/sdk/com.unlimint.sdk.api/-mobile-sdk-interface/payment-for-result.md
+$dokka.location:com.unlimint.sdk.api/MobileSdkInterface/paymentForResult/#androidx.appcompat.app.AppCompatActivity#kotlin.String#com.unlimint.sdk.api.model.scenario.payment.TokenPayment.Data#Environments#kotlin.Int/PointingToDeclaration/sdk/com.unlimint.sdk.api/-mobile-sdk-interface/payment-for-result.md
+$dokka.location:com.unlimint.sdk.api/MobileSdkInterface/paymentWithPayPalForResult/#androidx.appcompat.app.AppCompatActivity#kotlin.String#com.unlimint.sdk.api.model.scenario.payment.Payment.PayPalData#Environments#kotlin.Int/PointingToDeclaration/sdk/com.unlimint.sdk.api/-mobile-sdk-interface/payment-with-pay-pal-for-result.md
 com.unlimint.sdk.api
 com.unlimint.sdk.api.exceptions
 com.unlimint.sdk.api.model
 com.unlimint.sdk.api.model.scenario.binding
 com.unlimint.sdk.api.model.scenario.payment
-com.unlimint.sdk.di.module
-com.unlimint.sdk.scenario.payment.domain
-com.unlimint.sdk.util.data.random
-com.unlimint.sdk.util.security.emulator
-com.unlimint.sdk.util.ui.view
 
