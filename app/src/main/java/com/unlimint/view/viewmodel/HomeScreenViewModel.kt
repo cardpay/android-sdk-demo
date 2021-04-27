@@ -1,5 +1,7 @@
 package com.unlimint.view.viewmodel
 
+import android.content.Intent
+import androidx.activity.result.ActivityResultLauncher
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.*
 import com.unlimint.data.Result
@@ -25,9 +27,9 @@ class HomeScreenViewModel @Inject constructor(
         activity: AppCompatActivity,
         currency: Currency,
         customer: Customer,
-        bindRequestCode: Int,
         merchantOrder: MerchantOrder?,
-        cardAccount: Binding.CardAccount?
+        cardAccount: Binding.CardAccount?,
+        launcher: ActivityResultLauncher<Intent>
     ) {
         viewModelScope.launch(Dispatchers.IO) {
             val result = repository.getMobileToken()
@@ -35,7 +37,7 @@ class HomeScreenViewModel @Inject constructor(
                 is Result.Success -> MobileSdk.bindNewCardForResult(
                     activity = activity,
                     mobileAuthorizationToken = result.data,
-                    requestCode = bindRequestCode,
+                    launcher = launcher,
                     bindingMethodData = Binding.Data(
                         currency = currency,
                         customer = customer,

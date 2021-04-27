@@ -13,23 +13,16 @@ import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.unlimint.App
-import com.unlimint.R
 import com.unlimint.sdk.api.MobileSdk
 
 class TransactionService : Service() {
 
-    private val transactionReceiver = SDKTransactionBroadcastReceiver()
     private val securityReceiver = SDKSecurityBroadcastReceiver()
 
     override fun onBind(p0: Intent?): IBinder? = null
 
     override fun onCreate() {
         super.onCreate()
-        LocalBroadcastManager.getInstance(this)
-            .registerReceiver(
-                transactionReceiver,
-                IntentFilter(MobileSdk.TransactionData.TRANSACTION_ACTION)
-            )
 
         LocalBroadcastManager.getInstance(this)
             .registerReceiver(
@@ -43,18 +36,7 @@ class TransactionService : Service() {
     override fun onDestroy() {
         super.onDestroy()
         stopForeground(true)
-        LocalBroadcastManager.getInstance(this).unregisterReceiver(transactionReceiver)
         LocalBroadcastManager.getInstance(this).unregisterReceiver(securityReceiver)
-    }
-
-    /**
-     * Broadcast Receiver that catch transaction message from [MobileSdk]
-     **/
-    private class SDKTransactionBroadcastReceiver : BroadcastReceiver() {
-        override fun onReceive(cxt: Context?, intent: Intent?) {
-            val transactionId = intent?.getStringExtra(MobileSdk.TransactionData.TRANSACTION_ID)
-            Log.d("UnlimintSdkApp", "transactionId = $transactionId")
-        }
     }
 
     /**

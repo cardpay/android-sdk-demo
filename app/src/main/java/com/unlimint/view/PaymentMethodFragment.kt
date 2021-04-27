@@ -1,5 +1,6 @@
 package com.unlimint.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -18,8 +19,9 @@ import com.unlimint.sdk.api.model.Customer
 import com.unlimint.sdk.api.model.MerchantOrder
 import com.unlimint.sdk.api.model.scenario.payment.Amount
 import com.unlimint.sdk.api.model.scenario.payment.PaymentData
+import com.unlimint.utils.ActivityResultLauncherProvider
+import com.unlimint.utils.ActivityResultListener
 import com.unlimint.utils.RecyclerViewClickListener
-import com.unlimint.view.MainActivity.Companion.PAY_REQUEST_CODE
 import com.unlimint.view.viewmodel.PaymentMethodScreenViewModel
 import java.lang.IllegalStateException
 import java.math.BigDecimal
@@ -30,12 +32,14 @@ class PaymentMethodFragment : Fragment() {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
+    private lateinit var launcherProvider: ActivityResultLauncherProvider
 
     private val viewModel: PaymentMethodScreenViewModel by viewModels { viewModelFactory }
 
     private var _binding: FragmentPaymentMethodsLayoutBinding? = null
     private val binding get() = _binding!!
     private lateinit var linearLayoutManager: LinearLayoutManager
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -47,6 +51,13 @@ class PaymentMethodFragment : Fragment() {
             container,
             false
         )
+        val activity = requireActivity() as? MainActivity ?: throw IllegalStateException()
+        launcherProvider = activity.paymentResultLauncher
+        launcherProvider.activityResultListener = object : ActivityResultListener {
+            override fun onReceiveResult(resultCode: Int, data: Intent?) {
+                activity.handleCancellation(resultCode, data)
+            }
+        }
         return binding.root
     }
 
@@ -114,7 +125,7 @@ class PaymentMethodFragment : Fragment() {
                     currency = Currency.getInstance("USD")
                 )
             ),
-            paymentRequestCode = PAY_REQUEST_CODE
+            launcher = launcherProvider.launcher
         )
     }
 

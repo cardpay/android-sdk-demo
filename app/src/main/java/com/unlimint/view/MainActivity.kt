@@ -12,13 +12,14 @@ import com.unlimint.R
 import com.unlimint.databinding.ActivityMainBinding
 import com.unlimint.sdk.api.MobileSdk
 import com.unlimint.sdk.api.exceptions.*
+import com.unlimint.utils.ActivityResultLauncherProvider
 
 class MainActivity : AppCompatActivity() {
 
-    companion object {
-        const val BIND_REQUEST_CODE = 1234
-        const val PAY_REQUEST_CODE = 4321
-    }
+    val bindCardResultLauncher = ActivityResultLauncherProvider(this)
+    val paymentResultLauncher = ActivityResultLauncherProvider(this)
+    val paymentWithTokenResultLauncherProvider =
+        ActivityResultLauncherProvider(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,27 +32,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        handleCancellation(resultCode, data)
-    }
-
-    private fun handleCancellation(resultCode: Int, data: Intent?) {
-        if (Activity.RESULT_CANCELED == resultCode) {
-            data?.getSerializableExtra(MobileSdk.ARG_EXCEPTION)?.let {
-                when (it) {
-                    is MobileSdkServiceUnavailableException -> toast("Server error")
-                    is MobileSdkIllegalStateException -> toast("Internal error")
-                    is MobileSdkBindingDeclineException -> toast("Failed binding")
-                    is MobileSdkSecurityException -> toast(it.message!!)
-                    is MobileSdkUnauthorizedException -> toast(it.message!!)
-                }
-            }
-        }
-    }
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when(item.itemId){
+        return when (item.itemId) {
             android.R.id.home -> {
                 onBackPressed()
                 true
@@ -61,6 +43,21 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
-private fun AppCompatActivity.toast(message: String) {
+fun AppCompatActivity.toast(message: String) {
     Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+}
+
+fun AppCompatActivity.handleCancellation(resultCode: Int, data: Intent?) {
+    if (Activity.RESULT_CANCELED == resultCode) {
+        data?.getSerializableExtra(MobileSdk.ARG_EXCEPTION)?.let {
+            when (it) {
+                is MobileSdkServiceUnavailableException -> toast("Server error")
+                is MobileSdkIllegalStateException -> toast("Internal error")
+                is MobileSdkBindingDeclineException -> toast("Failed binding")
+                is MobileSdkSecurityException -> toast(it.message!!)
+                is MobileSdkUnauthorizedException -> toast(it.message!!)
+                is MobileSdkPaymentDeclineException -> toast(it.message!!)
+            }
+        }
+    }
 }

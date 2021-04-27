@@ -1,12 +1,14 @@
 package com.unlimint.view
 
+import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
@@ -18,8 +20,9 @@ import com.unlimint.sdk.api.model.MerchantOrder
 import com.unlimint.sdk.api.model.scenario.payment.Amount
 import com.unlimint.sdk.api.model.scenario.payment.PaymentData
 import com.unlimint.sdk.api.model.scenario.payment.TokenPayment
+import com.unlimint.utils.ActivityResultLauncherProvider
+import com.unlimint.utils.ActivityResultListener
 import com.unlimint.utils.setOnSingleClickListener
-import com.unlimint.view.MainActivity.Companion.PAY_REQUEST_CODE
 import com.unlimint.view.viewmodel.PaymentWithTokenScreenViewModel
 import java.lang.IllegalStateException
 import java.math.BigDecimal
@@ -30,6 +33,7 @@ class PaymentWithTokenFragment : Fragment() {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
+    private lateinit var launcherProvider: ActivityResultLauncherProvider
 
     private val viewModel: PaymentWithTokenScreenViewModel by viewModels { viewModelFactory }
 
@@ -46,6 +50,13 @@ class PaymentWithTokenFragment : Fragment() {
             container,
             false
         )
+        val activity = requireActivity() as? MainActivity ?: throw IllegalStateException()
+        launcherProvider = activity.paymentWithTokenResultLauncherProvider
+        launcherProvider.activityResultListener = object : ActivityResultListener {
+            override fun onReceiveResult(resultCode: Int, data: Intent?) {
+                activity.handleCancellation(resultCode, data)
+            }
+        }
         return binding.root
     }
 
@@ -54,12 +65,20 @@ class PaymentWithTokenFragment : Fragment() {
 
         (activity.application as App).appComponent?.inject(this)
 
-        binding.buyButton.isEnabled = false
+        binding.tokenInputLayout.addTextWatcher(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+                //not implemented
+            }
 
-        binding.tokenInputLayout.editText?.doAfterTextChanged {
-            val length = it?.length ?: 0
-            binding.buyButton.isEnabled = length > 0
-        }
+            override fun afterTextChanged(s: Editable?) {
+                //not implemented
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                val length = s?.length ?: 0
+                binding.buyButton.isEnabled = length > 0
+            }
+        })
 
         binding.buyButton.setOnSingleClickListener {
             activity.startService(TransactionService.getNewIntent(activity))
@@ -100,7 +119,7 @@ class PaymentWithTokenFragment : Fragment() {
                     last4PanDigits = "1234"
                 )
             ),
-            paymentRequestCode = PAY_REQUEST_CODE
+            launcher = launcherProvider.launcher
         )
     }
 

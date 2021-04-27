@@ -5,13 +5,12 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="toolbarStyle">@style/SdkDemoToolBarStyle</item>
-        <item name="android:windowLightStatusBar">true</item>
+        <item name="toolbarStyle">@style/SdkDemoStyle.SdkDemoToolBarStyle</item>
     </style>
 
     <style name="MobileSdkStyle" parent="Theme.MobileSdk.Light"></style>
 
-    <style name="SdkDemoToolBarStyle" parent="Widget.MaterialComponents.Toolbar">
+    <style name="SdkDemoStyle.SdkDemoToolBarStyle" parent="Widget.MaterialComponents.Toolbar">
         <item name="android:background">@color/colorPrimaryDark</item>
     </style>
 
@@ -20,39 +19,50 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="SdkDemoStyle"/>
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
-    <style name="SdkDemoTextViewStyle" parent="Widget.AppCompat.TextView">
-        <item name="fontFamily">@font/inter_regular</item>
+    <style name="SdkDemoStyle.TextView" parent="Widget.AppCompat.TextView">
+        <item name="fontFamily">@font/inter_400_regular</item>
         <item name="android:textColor">@android:color/black</item>
-        <item name="android:layout_marginStart">@dimen/space_x2</item>
-        <item name="android:layout_marginEnd">@dimen/space_x2</item>
+        <item name="android:layout_marginStart">@dimen/sdk_demo_space_x2</item>
+        <item name="android:layout_marginEnd">@dimen/sdk_demo_space_x2</item>
     </style>
 
-    <style name="SdkDemoButtonStyle" parent="Widget.AppCompat.Button">
-        <item name="fontFamily">@font/inter_regular</item>
-        <item name="android:layout_height">52dp</item>
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:stateListAnimator">@null</item>
-        <item name="cornerRadius">4dp</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@drawable/button_text_selector</item>
-        <item name="android:layout_marginStart">@dimen/space_x2</item>
-        <item name="android:layout_marginEnd">@dimen/space_x2</item>
+    <style name="SdkDemoStyle.Button" parent="@style/Widget.MaterialComponents.Button">
+        <item name="android:textColor">@drawable/sdk_demo_button_text_selector</item>
+        <item name="android:background">@drawable/material_button_ripple</item>
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:paddingEnd">20dp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:textSize">@dimen/sdk_demo_title_17</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">@font/inter_500_medium</item>
         <item name="android:textAllCaps">false</item>
-        <item name="backgroundTint">@drawable/material_button_color_states</item>
     </style>
 
-    <style name="SdkDemoTextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="android:layout_marginStart">@dimen/space_x2</item>
-        <item name="android:layout_marginEnd">@dimen/space_x2</item>
-    </style>
-
-    <style name="ToolbarColoredBackArrow" parent="AppTheme">
+    <style name="SdkDemoStyle.ToolbarColoredBackArrow" parent="AppTheme">
         <item name="android:textColorSecondary">@color/toolbar_home_button</item>
     </style>
 
+    <style name="SdkDemoStyle.EditText">
+        <!--Background-->
+        <item name="defaultInputBackground">@drawable/sdk_demo_edit_text_background</item>
+        <item name="disableInputBackground">@drawable/sdk_demo_edit_text_background_disable</item>
+        <item name="errorInputBackground">@drawable/edit_text_background_error</item>
+        <!--Text color-->
+        <item name="inputHintTextColor">@color/sdk_demo_color_field_placeholder</item>
+        <item name="inputTextColor">@color/sdk_demo_color_text_primary</item>
+        <item name="labelTextColor">@drawable/sdk_demo_edit_text_label_selector</item>
+        <item name="errorTextColor">@color/sdk_demo_color_text_primary</item>
+        <!--Text size-->
+        <item name="inputTextSize">@dimen/sdk_demo_headline_16</item>
+        <item name="labelTextSize">@dimen/sdk_demo__subhead_14</item>
+        <item name="errorTextSize">@dimen/sdk_demo__caption_11</item>
+        <!--Text font-->
+        <item name="inputTextFont">@font/inter_400_regular</item>
+        <item name="labelTextFont">@font/inter_500_medium</item>
+        <item name="errorTextFont">@font/inter_400_regular</item>
+    </style>
 
 </resources>

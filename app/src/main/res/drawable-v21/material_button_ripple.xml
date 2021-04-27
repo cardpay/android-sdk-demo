@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@color/sdk_demo_color_button_ripple">
+    <item>
+        <selector>
+            <item android:state_enabled="false">
+                <shape android:shape="rectangle" >
+                    <solid android:color="@color/sdk_demo_color_button_disable_background"/>
+                    <corners android:radius="4dp"/>
+                </shape>
+            </item>
+
+            <item>
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/sdk_demo_color_button_primary_background"/>
+                    <corners android:radius="4dp"/>
+                </shape>
+            </item>
+        </selector>
+    </item>
+</ripple>

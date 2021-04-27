@@ -16,10 +16,10 @@
     
     <TextView
         android:id="@+id/title"
-        style="@style/SdkDemoTextViewStyle"
+        style="@style/SdkDemoStyle.TextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_x3"
+        android:layout_marginTop="24dp"
         android:textStyle="bold"
         android:textSize="20sp"
         android:text="@string/home_screen_title"
@@ -28,11 +28,11 @@
 
     <TextView
         android:id="@+id/text"
-        style="@style/SdkDemoTextViewStyle"
+        style="@style/SdkDemoStyle.TextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_x1.25"
-        android:textSize="@dimen/H3"
+        android:layout_marginTop="12dp"
+        android:textSize="@dimen/sdk_demo_caption_12"
         android:text="@string/home_screen_text"
         android:textColor="@color/description_text_color"
         app:layout_constraintTop_toBottomOf="@id/title"
@@ -40,18 +40,22 @@
 
     <TextView
         android:id="@+id/price"
-        style="@style/SdkDemoTextViewStyle"
+        style="@style/SdkDemoStyle.TextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/H3"
-        android:layout_marginTop="@dimen/space_x4"
+        android:textSize="@dimen/unlimint_text_15"
+        android:layout_marginTop="32dp"
         android:text="@string/home_screen_price"
         app:layout_constraintTop_toBottomOf="@id/text"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
+    <android.widget.Button
         android:id="@+id/buyButton"
-        style="@style/SdkDemoButtonStyle"
+        style="@style/SdkDemoStyle.Button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/sdk_demo_space_x2"
+        android:layout_marginEnd="@dimen/sdk_demo_space_x2"
         app:layout_constraintBottom_toTopOf="@id/bankCardButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -59,7 +63,7 @@
 
     <TextView
         android:id="@+id/bankCardButton"
-        style="@style/SdkDemoTextViewStyle"
+        style="@style/SdkDemoStyle.TextView"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -67,8 +71,8 @@
         android:layout_marginEnd="0dp"
         android:textColor="@color/color_edittext_button"
         android:layout_marginStart="0dp"
-        android:paddingTop="@dimen/space_x3"
-        android:paddingBottom="@dimen/space_x4"
+        android:paddingTop="24dp"
+        android:paddingBottom="32dp"
         android:text="@string/button_link_to_card_text"
         android:clickable="true"
         android:focusable="true"

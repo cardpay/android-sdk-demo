@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SdkDemoEditText">
+        <attr name="inputHintTextColor" format="color" />
+        <attr name="inputTextColor" format="reference|color" />
+        <attr name="labelTextColor" format="reference|color" />
+        <attr name="errorTextColor" format="reference|color" />
+        <attr name="defaultInputBackground" format="reference|color" />
+        <attr name="disableInputBackground" format="reference|color" />
+        <attr name="errorInputBackground" format="reference|color" />
+        <attr name="hintText" format="string" />
+        <attr name="inputText" format="string" />
+        <attr name="labelText" format="string" />
+        <attr name="digits" format="string" />
+        <attr name="inputTextSize" format="dimension" />
+        <attr name="inputTextFont" format="reference" />
+        <attr name="labelTextSize" format="dimension" />
+        <attr name="labelTextFont" format="reference" />
+        <attr name="errorTextSize" format="dimension" />
+        <attr name="errorTextFont" format="reference" />
+        <attr name="isNumberType" format="boolean" />
+        <attr name="isDateTimeType" format="boolean" />
+        <attr name="isTextType" format="boolean" />
+        <attr name="isTextMultilineType" format="boolean" />
+        <attr name="isPasswordType" format="boolean" />
+        <attr name="maxLength" format="integer" />
+        <attr name="isPhoneType" format="boolean" />
+
+        <attr name="demoImeOptions">
+            <flag name="normal" value="0x00000000" />
+            <flag name="actionUnspecified" value="0x00000000" />
+            <flag name="actionNone" value="0x00000001" />
+            <flag name="actionGo" value="0x00000002" />
+            <flag name="actionSearch" value="0x00000003" />
+            <flag name="actionSend" value="0x00000004" />
+            <flag name="actionNext" value="0x00000005" />
+            <flag name="actionDone" value="0x00000006" />
+            <flag name="actionPrevious" value="0x00000007" />
+            <flag name="flagNoPersonalizedLearning" value="0x1000000" />
+            <flag name="flagNoFullscreen" value="0x2000000" />
+            <flag name="flagNavigatePrevious" value="0x4000000" />
+            <flag name="flagNavigateNext" value="0x8000000" />
+            <flag name="flagNoExtractUi" value="0x10000000" />
+            <flag name="flagNoAccessoryAction" value="0x20000000" />
+            <flag name="flagNoEnterAction" value="0x40000000" />
+            <flag name="flagForceAscii" value="0x80000000" />
+        </attr>
+</declare-styleable></resources>
