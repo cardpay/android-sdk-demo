@@ -5,8 +5,29 @@
     <color name="colorAccent">@android:color/black</color>
     <color name="color_edittext_button">#346BD7</color>
     <color name="color_material_button">#C9F73A</color>
-    <color name="color_disabled_material_button">#F2F2F2</color>
     <color name="gray">#E5E5E5</color>
     <color name="description_text_color">#808080</color>
     <color name="toolbar_home_button">#346BD7</color>
+
+
+    <!--Button -->
+    <color name="sdk_demo_color_button_ripple">#E4FB9C</color>
+    <color name="sdk_demo_color_button_primary_background">#C9F73A</color>
+    <color name="sdk_demo_color_button_pressed_background">#B1E609</color>
+    <color name="sdk_demo_disabled_material_button">#F2F2F2</color>
+    <color name="sdk_demo_color_button_disable_background">#E5E5E5</color>
+
+    <!--Text_-->
+    <color name="sdk_demo_color_text_primary">#000000</color>
+    <color name="sdk_demo_color_text_secondary">#595959</color>
+
+    <!--Field-->
+    <color name="sdk_demo_color_field_border">#D9D9D9</color>
+    <color name="sdk_demo_color_field_border_focus">#000000</color>
+    <color name="sdk_demo_color_field_placeholder">#BFBFBF</color>
+    <color name="sdk_demo_color_field_label">#000000</color>
+    <color name="sdk_demo_color_field_label_disabled">#BFBFBF</color>
+    <color name="sdk_demo_color_field_background_disable">#FAFAFA</color>
+    <color name="sdk_demo_color_field_error_border">@color/unlimint_color_accent_destructive</color>
+
 </resources>

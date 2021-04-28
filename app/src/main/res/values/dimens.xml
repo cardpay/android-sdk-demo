@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="sdk_demo_headline_16">16sp</dimen>
+    <dimen name="sdk_demo__text_15">15sp</dimen>
+    <dimen name="sdk_demo__subhead_14">14sp</dimen>
+    <dimen name="sdk_demo__caption_12">12sp</dimen>
+    <dimen name="sdk_demo__caption_11">11sp</dimen>
+
+    <dimen name="sdk_demo_space_x1">8dp</dimen>
+    <dimen name="sdk_demo_space_x2">16dp</dimen>
+
+    <dimen name="sdk_demo_caption_12">12sp</dimen>
+
+    <dimen name="sdk_demo_title_17">17sp</dimen>
+</resources>

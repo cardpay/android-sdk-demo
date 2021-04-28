@@ -1,5 +1,7 @@
 package com.unlimint.view.viewmodel
 
+import android.content.Intent
+import androidx.activity.result.ActivityResultLauncher
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -30,7 +32,7 @@ class PaymentMethodScreenViewModel @Inject constructor(
         customer: Customer,
         merchantOrder: MerchantOrder,
         paymentData: PaymentData,
-        paymentRequestCode: Int
+        launcher: ActivityResultLauncher<Intent>
     ) {
         viewModelScope.launch(Dispatchers.IO) {
             val result = repository.getMobileToken()
@@ -45,7 +47,7 @@ class PaymentMethodScreenViewModel @Inject constructor(
                         paymentData,
                         null
                     ),
-                    requestCode = paymentRequestCode,
+                    launcher = launcher,
                     environment = Environments.SANDBOX
                 )
                 is Result.Error -> _onBindCardError.postValue(result.exception.message)

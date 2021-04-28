@@ -7,10 +7,10 @@
 
     <TextView
         android:id="@+id/methodName"
-        style="@style/SdkDemoTextViewStyle"
+        style="@style/SdkDemoStyle.TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_x3"
+        android:layout_marginTop="22dp"
         android:text="@string/method_payment_name"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,7 +19,7 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/space_x3"
+        android:padding="25dp"
         android:src="@drawable/ic_arrow"
         app:layout_constraintBottom_toBottomOf="@id/methodName"
         app:layout_constraintEnd_toEndOf="parent"

@@ -1,5 +1,6 @@
 package com.unlimint.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,8 +15,9 @@ import com.unlimint.R
 import com.unlimint.databinding.FragmentHomeScreenLayoutBinding
 import com.unlimint.navigation.NavigationHelper.navigateTo
 import com.unlimint.sdk.api.model.Customer
+import com.unlimint.utils.ActivityResultLauncherProvider
+import com.unlimint.utils.ActivityResultListener
 import com.unlimint.utils.setOnSingleClickListener
-import com.unlimint.view.MainActivity.Companion.BIND_REQUEST_CODE
 import com.unlimint.view.viewmodel.HomeScreenViewModel
 import java.lang.IllegalStateException
 import java.util.*
@@ -25,6 +27,7 @@ class HomeScreenFragment : Fragment() {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
+    private lateinit var launcherProvider: ActivityResultLauncherProvider
 
     private val viewModel: HomeScreenViewModel by viewModels { viewModelFactory }
 
@@ -41,6 +44,13 @@ class HomeScreenFragment : Fragment() {
             container,
             false
         )
+        val activity = requireActivity() as? MainActivity ?: throw IllegalStateException()
+        launcherProvider = activity.bindCardResultLauncher
+        launcherProvider.activityResultListener = object : ActivityResultListener {
+            override fun onReceiveResult(resultCode: Int, data: Intent?) {
+                activity.handleCancellation(resultCode, data)
+            }
+        }
         return binding.root
     }
 
@@ -48,6 +58,8 @@ class HomeScreenFragment : Fragment() {
         val activity = requireActivity() as? AppCompatActivity ?: throw IllegalStateException()
 
         (activity.application as App).appComponent?.inject(this)
+
+        binding.buyButton.isEnabled = true
 
         binding.buyButton.setOnClickListener {
             activity.navigateTo(PaymentMethodFragment())
@@ -76,7 +88,7 @@ class HomeScreenFragment : Fragment() {
                 id = "656945944",
                 email = "cardpay.test.mobile@gmail.com"
             ),
-            bindRequestCode = BIND_REQUEST_CODE,
+            launcher = launcherProvider.launcher,
             cardAccount = null,
             merchantOrder = null
         )
