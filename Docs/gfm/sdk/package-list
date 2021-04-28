@@ -11,6 +11,8 @@ $dokka.location:com.unlimint.sdk.api.exceptions/MobileSdkSecurityException///Poi
 $dokka.location:com.unlimint.sdk.api.exceptions/MobileSdkSecurityException/MobileSdkSecurityException/#kotlin.String/PointingToDeclaration/sdk/com.unlimint.sdk.api.exceptions/-mobile-sdk-security-exception/-mobile-sdk-security-exception.md
 $dokka.location:com.unlimint.sdk.api.exceptions/MobileSdkServiceUnavailableException///PointingToDeclaration/sdk/com.unlimint.sdk.api.exceptions/-mobile-sdk-service-unavailable-exception/index.md
 $dokka.location:com.unlimint.sdk.api.exceptions/MobileSdkServiceUnavailableException/MobileSdkServiceUnavailableException/#/PointingToDeclaration/sdk/com.unlimint.sdk.api.exceptions/-mobile-sdk-service-unavailable-exception/-mobile-sdk-service-unavailable-exception.md
+$dokka.location:com.unlimint.sdk.api.exceptions/MobileSdkTimeoutException///PointingToDeclaration/sdk/com.unlimint.sdk.api.exceptions/-mobile-sdk-timeout-exception/index.md
+$dokka.location:com.unlimint.sdk.api.exceptions/MobileSdkTimeoutException/MobileSdkTimeoutException/#kotlin.String/PointingToDeclaration/sdk/com.unlimint.sdk.api.exceptions/-mobile-sdk-timeout-exception/-mobile-sdk-timeout-exception.md
 $dokka.location:com.unlimint.sdk.api.exceptions/MobileSdkUnauthorizedException///PointingToDeclaration/sdk/com.unlimint.sdk.api.exceptions/-mobile-sdk-unauthorized-exception/index.md
 $dokka.location:com.unlimint.sdk.api.exceptions/MobileSdkUnauthorizedException/MobileSdkUnauthorizedException/#kotlin.String/PointingToDeclaration/sdk/com.unlimint.sdk.api.exceptions/-mobile-sdk-unauthorized-exception/-mobile-sdk-unauthorized-exception.md
 $dokka.location:com.unlimint.sdk.api.exceptions/MobileSdkUnauthorizedException/expiredToken/#/PointingToDeclaration/sdk/com.unlimint.sdk.api.exceptions/-mobile-sdk-unauthorized-exception/expired-token.md
@@ -129,20 +131,44 @@ $dokka.location:com.unlimint.sdk.api/MobileSdk.SecurityData/SECURE_EVENT/#/Point
 $dokka.location:com.unlimint.sdk.api/MobileSdk.SecurityData/SECURITY_ACTION/#/PointingToDeclaration/sdk/com.unlimint.sdk.api/-mobile-sdk/-security-data/-s-e-c-u-r-i-t-y_-a-c-t-i-o-n.md
 $dokka.location:com.unlimint.sdk.api/MobileSdk.SecurityData/SECURITY_EXTRA/#/PointingToDeclaration/sdk/com.unlimint.sdk.api/-mobile-sdk/-security-data/-s-e-c-u-r-i-t-y_-e-x-t-r-a.md
 $dokka.location:com.unlimint.sdk.api/MobileSdk.TransactionData///PointingToDeclaration/sdk/com.unlimint.sdk.api/-mobile-sdk/-transaction-data/index.md
-$dokka.location:com.unlimint.sdk.api/MobileSdk.TransactionData/TRANSACTION_ACTION/#/PointingToDeclaration/sdk/com.unlimint.sdk.api/-mobile-sdk/-transaction-data/-t-r-a-n-s-a-c-t-i-o-n_-a-c-t-i-o-n.md
 $dokka.location:com.unlimint.sdk.api/MobileSdk.TransactionData/TRANSACTION_ID/#/PointingToDeclaration/sdk/com.unlimint.sdk.api/-mobile-sdk/-transaction-data/-t-r-a-n-s-a-c-t-i-o-n_-i-d.md
 $dokka.location:com.unlimint.sdk.api/MobileSdk///PointingToDeclaration/sdk/com.unlimint.sdk.api/-mobile-sdk/index.md
 $dokka.location:com.unlimint.sdk.api/MobileSdk/ARG_EXCEPTION/#/PointingToDeclaration/sdk/com.unlimint.sdk.api/-mobile-sdk/-a-r-g_-e-x-c-e-p-t-i-o-n.md
 $dokka.location:com.unlimint.sdk.api/MobileSdk/ARG_LAST_4_DIGITS/#/PointingToDeclaration/sdk/com.unlimint.sdk.api/-mobile-sdk/-a-r-g_-l-a-s-t_4_-d-i-g-i-t-s.md
 $dokka.location:com.unlimint.sdk.api/MobileSdkInterface///PointingToDeclaration/sdk/com.unlimint.sdk.api/-mobile-sdk-interface/index.md
-$dokka.location:com.unlimint.sdk.api/MobileSdkInterface/bindNewCardForResult/#androidx.appcompat.app.AppCompatActivity#kotlin.String#com.unlimint.sdk.api.model.scenario.binding.Binding.Data#Environments#kotlin.Int/PointingToDeclaration/sdk/com.unlimint.sdk.api/-mobile-sdk-interface/bind-new-card-for-result.md
+$dokka.location:com.unlimint.sdk.api/MobileSdkInterface/bindNewCardForResult/#androidx.appcompat.app.AppCompatActivity#kotlin.String#com.unlimint.sdk.api.model.scenario.binding.Binding.Data#Environments#androidx.activity.result.ActivityResultLauncher[android.content.Intent]/PointingToDeclaration/sdk/com.unlimint.sdk.api/-mobile-sdk-interface/bind-new-card-for-result.md
 $dokka.location:com.unlimint.sdk.api/MobileSdkInterface/close/#android.content.Context/PointingToDeclaration/sdk/com.unlimint.sdk.api/-mobile-sdk-interface/close.md
-$dokka.location:com.unlimint.sdk.api/MobileSdkInterface/paymentForResult/#androidx.appcompat.app.AppCompatActivity#kotlin.String#com.unlimint.sdk.api.model.scenario.payment.Payment.Data#Environments#kotlin.Int/PointingToDeclaration/sdk/com.unlimint.sdk.api/-mobile-sdk-interface/payment-for-result.md
-$dokka.location:com.unlimint.sdk.api/MobileSdkInterface/paymentForResult/#androidx.appcompat.app.AppCompatActivity#kotlin.String#com.unlimint.sdk.api.model.scenario.payment.TokenPayment.Data#Environments#kotlin.Int/PointingToDeclaration/sdk/com.unlimint.sdk.api/-mobile-sdk-interface/payment-for-result.md
-$dokka.location:com.unlimint.sdk.api/MobileSdkInterface/paymentWithPayPalForResult/#androidx.appcompat.app.AppCompatActivity#kotlin.String#com.unlimint.sdk.api.model.scenario.payment.Payment.PayPalData#Environments#kotlin.Int/PointingToDeclaration/sdk/com.unlimint.sdk.api/-mobile-sdk-interface/payment-with-pay-pal-for-result.md
+$dokka.location:com.unlimint.sdk.api/MobileSdkInterface/paymentForResult/#androidx.appcompat.app.AppCompatActivity#kotlin.String#com.unlimint.sdk.api.model.scenario.payment.Payment.Data#Environments#androidx.activity.result.ActivityResultLauncher[android.content.Intent]/PointingToDeclaration/sdk/com.unlimint.sdk.api/-mobile-sdk-interface/payment-for-result.md
+$dokka.location:com.unlimint.sdk.api/MobileSdkInterface/paymentForResult/#androidx.appcompat.app.AppCompatActivity#kotlin.String#com.unlimint.sdk.api.model.scenario.payment.TokenPayment.Data#Environments#androidx.activity.result.ActivityResultLauncher[android.content.Intent]/PointingToDeclaration/sdk/com.unlimint.sdk.api/-mobile-sdk-interface/payment-for-result.md
+$dokka.location:com.unlimint.sdk.api/MobileSdkInterface/paymentWithPayPalForResult/#androidx.appcompat.app.AppCompatActivity#kotlin.String#com.unlimint.sdk.api.model.scenario.payment.Payment.PayPalData#Environments#androidx.activity.result.ActivityResultLauncher[android.content.Intent]/PointingToDeclaration/sdk/com.unlimint.sdk.api/-mobile-sdk-interface/payment-with-pay-pal-for-result.md
+$dokka.location:com.unlimint.sdk.uikit////PointingToDeclaration/sdk/com.unlimint.sdk.uikit/index.md
+$dokka.location:com.unlimint.sdk.uikit/PasswordInputTypeHelper///PointingToDeclaration/sdk/com.unlimint.sdk.uikit/-password-input-type-helper/index.md
+$dokka.location:com.unlimint.sdk.uikit/PasswordInputTypeHelper/getInputType/#kotlin.Int#kotlin.Boolean/PointingToDeclaration/sdk/com.unlimint.sdk.uikit/-password-input-type-helper/get-input-type.md
+$dokka.location:com.unlimint.sdk.uikit/UnlimintEditText///PointingToDeclaration/sdk/com.unlimint.sdk.uikit/-unlimint-edit-text/index.md
+$dokka.location:com.unlimint.sdk.uikit/UnlimintEditText/UnlimintEditText/#android.content.Context#android.util.AttributeSet?#kotlin.Int/PointingToDeclaration/sdk/com.unlimint.sdk.uikit/-unlimint-edit-text/-unlimint-edit-text.md
+$dokka.location:com.unlimint.sdk.uikit/UnlimintEditText/addFocusListener/#android.view.View.OnFocusChangeListener?/PointingToDeclaration/sdk/com.unlimint.sdk.uikit/-unlimint-edit-text/add-focus-listener.md
+$dokka.location:com.unlimint.sdk.uikit/UnlimintEditText/addTextWatcher/#android.text.TextWatcher/PointingToDeclaration/sdk/com.unlimint.sdk.uikit/-unlimint-edit-text/add-text-watcher.md
+$dokka.location:com.unlimint.sdk.uikit/UnlimintEditText/disable/#kotlin.Boolean/PointingToDeclaration/sdk/com.unlimint.sdk.uikit/-unlimint-edit-text/disable.md
+$dokka.location:com.unlimint.sdk.uikit/UnlimintEditText/errorText/#/PointingToDeclaration/sdk/com.unlimint.sdk.uikit/-unlimint-edit-text/error-text.md
+$dokka.location:com.unlimint.sdk.uikit/UnlimintEditText/hasFocus/#/PointingToDeclaration/sdk/com.unlimint.sdk.uikit/-unlimint-edit-text/has-focus.md
+$dokka.location:com.unlimint.sdk.uikit/UnlimintEditText/input/#/PointingToDeclaration/sdk/com.unlimint.sdk.uikit/-unlimint-edit-text/input.md
+$dokka.location:com.unlimint.sdk.uikit/UnlimintEditText/isDisable/#/PointingToDeclaration/sdk/com.unlimint.sdk.uikit/-unlimint-edit-text/is-disable.md
+$dokka.location:com.unlimint.sdk.uikit/UnlimintEditText/removeError/#kotlin.Boolean/PointingToDeclaration/sdk/com.unlimint.sdk.uikit/-unlimint-edit-text/remove-error.md
+$dokka.location:com.unlimint.sdk.uikit/UnlimintEditText/removeTextWatcher/#android.text.TextWatcher/PointingToDeclaration/sdk/com.unlimint.sdk.uikit/-unlimint-edit-text/remove-text-watcher.md
+$dokka.location:com.unlimint.sdk.uikit/UnlimintEditText/setError/#kotlin.String#kotlin.Boolean/PointingToDeclaration/sdk/com.unlimint.sdk.uikit/-unlimint-edit-text/set-error.md
+$dokka.location:com.unlimint.sdk.uikit/UnlimintEditText/setFocus/#kotlin.Boolean/PointingToDeclaration/sdk/com.unlimint.sdk.uikit/-unlimint-edit-text/set-focus.md
+$dokka.location:com.unlimint.sdk.uikit/UnlimintEditText/text/#/PointingToDeclaration/sdk/com.unlimint.sdk.uikit/-unlimint-edit-text/text.md
+$dokka.location:com.unlimint.sdk.uikit/UnlimintEditTextIcon///PointingToDeclaration/sdk/com.unlimint.sdk.uikit/-unlimint-edit-text-icon/index.md
+$dokka.location:com.unlimint.sdk.uikit/UnlimintEditTextIcon/UnlimintEditTextIcon/#android.content.Context#android.util.AttributeSet?#kotlin.Int/PointingToDeclaration/sdk/com.unlimint.sdk.uikit/-unlimint-edit-text-icon/-unlimint-edit-text-icon.md
+$dokka.location:com.unlimint.sdk.uikit/UnlimintEditTextIcon/setEndIcon/#android.graphics.drawable.Drawable?/PointingToDeclaration/sdk/com.unlimint.sdk.uikit/-unlimint-edit-text-icon/set-end-icon.md
+$dokka.location:com.unlimint.sdk.uikit/UnlimintEditTextIcon/setEndIcon/#kotlin.Int/PointingToDeclaration/sdk/com.unlimint.sdk.uikit/-unlimint-edit-text-icon/set-end-icon.md
+$dokka.location:com.unlimint.sdk.uikit/UnlimintEditTextIcon/setIconPadding/#kotlin.Int/PointingToDeclaration/sdk/com.unlimint.sdk.uikit/-unlimint-edit-text-icon/set-icon-padding.md
+$dokka.location:com.unlimint.sdk.uikit/UnlimintEditTextIcon/setPasswordOffIcon/#android.graphics.drawable.Drawable?/PointingToDeclaration/sdk/com.unlimint.sdk.uikit/-unlimint-edit-text-icon/set-password-off-icon.md
+$dokka.location:com.unlimint.sdk.uikit/UnlimintEditTextIcon/setPasswordOnIcon/#android.graphics.drawable.Drawable?/PointingToDeclaration/sdk/com.unlimint.sdk.uikit/-unlimint-edit-text-icon/set-password-on-icon.md
 com.unlimint.sdk.api
 com.unlimint.sdk.api.exceptions
 com.unlimint.sdk.api.model
 com.unlimint.sdk.api.model.scenario.binding
 com.unlimint.sdk.api.model.scenario.payment
+com.unlimint.sdk.uikit
 
