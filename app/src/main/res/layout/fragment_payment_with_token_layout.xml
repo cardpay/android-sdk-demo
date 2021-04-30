@@ -7,7 +7,7 @@
 
     <com.unlimint.ui.SdkDemoEditText
         android:id="@+id/tokenInputLayout"
-        style="@style/Unlimint.EditText"
+        style="@style/SdkDemoStyle.EditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:hintText="@string/token_input_hint_text"
