@@ -28,6 +28,6 @@
     <color name="sdk_demo_color_field_label">#000000</color>
     <color name="sdk_demo_color_field_label_disabled">#BFBFBF</color>
     <color name="sdk_demo_color_field_background_disable">#FAFAFA</color>
-    <color name="sdk_demo_color_field_error_border">@color/unlimint_color_accent_destructive</color>
+    <color name="sdk_demo_color_field_error_border">#FF3B30</color>
 
 </resources>

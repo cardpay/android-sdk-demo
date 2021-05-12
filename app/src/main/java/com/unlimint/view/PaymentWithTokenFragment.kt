@@ -65,7 +65,9 @@ class PaymentWithTokenFragment : Fragment() {
 
         (activity.application as App).appComponent?.inject(this)
 
-        binding.tokenInputLayout.addTextWatcher(object : TextWatcher {
+        val textInput = binding.tokenInputLayout
+
+        textInput.addTextWatcher(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
                 //not implemented
             }
@@ -79,6 +81,8 @@ class PaymentWithTokenFragment : Fragment() {
                 binding.buyButton.isEnabled = length > 0
             }
         })
+
+        textInput.setText("a3d85ac0-4268-bb12-a628-f1e13a4988d8")
 
         binding.buyButton.setOnSingleClickListener {
             activity.startService(TransactionService.getNewIntent(activity))
