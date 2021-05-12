@@ -51,7 +51,7 @@ open class SdkDemoEditText @JvmOverloads constructor(
     private val defaultBackground: Drawable?
 
     init {
-        LayoutInflater.from(context).inflate(R.layout.view_input, this)
+        LayoutInflater.from(context).inflate(R.layout.sdk_demo_edit_text_view_input, this)
         label = findViewById(R.id.input_label)
         input = findViewById(R.id.input)
         error = findViewById(R.id.input_error)
@@ -68,54 +68,54 @@ open class SdkDemoEditText @JvmOverloads constructor(
         label.setTextColor(
             typedArray,
             R.styleable.SdkDemoEditText_labelTextColor,
-            defStateListRes = R.drawable.edit_text_label_selector
+            defStateListRes = R.drawable.sdk_demo_edit_text_label_selector
         )
 
         input.setTextColor(
             typedArray,
             R.styleable.SdkDemoEditText_inputTextColor,
-            defColorRes = R.color.unlimint_color_text_primary
+            defColorRes = R.color.sdk_demo_color_text_primary
         )
         input.setHintColor(
             typedArray,
             R.styleable.SdkDemoEditText_inputHintTextColor,
-            defColor = R.color.unlimint_color_field_placeholder
+            defColor = R.color.sdk_demo_color_field_placeholder
         )
         error.setTextColor(
             typedArray,
             R.styleable.SdkDemoEditText_errorTextColor,
-            defColorRes = R.color.unlimint_color_field_error_border
+            defColorRes = R.color.sdk_demo_color_field_error_border
         )
 
         // Setup background
         defaultBackground = typedArray.getBackground(
             R.styleable.SdkDemoEditText_defaultInputBackground,
-            R.drawable.edit_text_background
+            R.drawable.sdk_demo_edit_text_background
         )
         disabledBackground = typedArray.getBackground(
             R.styleable.SdkDemoEditText_disableInputBackground,
-            R.drawable.edit_text_background_disable
+            R.drawable.sdk_demo_edit_text_background_disable
         )
         errorBackground = typedArray.getBackground(
             R.styleable.SdkDemoEditText_errorInputBackground,
-            R.drawable.edit_text_background_error
+            R.drawable.sdk_demo_edit_text_background_error
         )
 
         // Setup text size
         label.setTextSize(
             typedArray,
             R.styleable.SdkDemoEditText_labelTextSize,
-            R.dimen.unlimint_subhead_14
+            R.dimen.sdk_demo__subhead_14
         )
         input.setTextSize(
             typedArray,
             R.styleable.SdkDemoEditText_inputTextSize,
-            R.dimen.unlimint_headline_16
+            R.dimen.sdk_demo_headline_16
         )
         error.setTextSize(
             typedArray,
             R.styleable.SdkDemoEditText_errorTextSize,
-            R.dimen.unlimint_caption_11
+            R.dimen.sdk_demo__caption_11
         )
 
         // Setup text type
@@ -230,6 +230,10 @@ open class SdkDemoEditText @JvmOverloads constructor(
 
     fun addFocusListener(listener: OnFocusChangeListener?) {
         input.onFocusChangeListener = listener
+    }
+
+    fun setText(text: String) {
+        input.setText(text)
     }
 
     private fun setEditTextBackground(drawable: Drawable?) {
