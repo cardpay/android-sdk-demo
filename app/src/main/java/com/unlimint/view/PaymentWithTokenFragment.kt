@@ -115,7 +115,7 @@ class PaymentWithTokenFragment : Fragment() {
             ),
             cardAccount = TokenPayment.CardAccount(
                 tokenData = TokenPayment.TokenData(
-                    token = "token_from_already_saved_card",
+                    token = binding.tokenInputLayout.input.text.toString(),
                     last4PanDigits = "1234"
                 )
             ),
