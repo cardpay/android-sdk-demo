@@ -82,8 +82,6 @@ class PaymentWithTokenFragment : Fragment() {
             }
         })
 
-        textInput.setText("a3d85ac0-4268-bb12-a628-f1e13a4988d8")
-
         binding.buyButton.setOnSingleClickListener {
             activity.startService(TransactionService.getNewIntent(activity))
             onPaymentWithTokenButtonClick(activity)
@@ -119,7 +117,7 @@ class PaymentWithTokenFragment : Fragment() {
             ),
             cardAccount = TokenPayment.CardAccount(
                 tokenData = TokenPayment.TokenData(
-                    token = "token_from_already_saved_card",
+                    token = binding.tokenInputLayout.input.text.toString(),
                     last4PanDigits = "1234"
                 )
             ),

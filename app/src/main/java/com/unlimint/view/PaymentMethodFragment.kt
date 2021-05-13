@@ -19,6 +19,7 @@ import com.unlimint.sdk.api.model.Customer
 import com.unlimint.sdk.api.model.MerchantOrder
 import com.unlimint.sdk.api.model.scenario.payment.Amount
 import com.unlimint.sdk.api.model.scenario.payment.PaymentData
+import com.unlimint.sdk.api.model.scenario.payment.TokenPayment
 import com.unlimint.utils.ActivityResultLauncherProvider
 import com.unlimint.utils.ActivityResultListener
 import com.unlimint.utils.RecyclerViewClickListener
@@ -67,10 +68,14 @@ class PaymentMethodFragment : Fragment() {
 
         val methodPaymentName = getString(R.string.method_payment_name)
         val methodPaymentWithTokenName = getString(R.string.method_payment_with_token_name)
+        val methodPaymentWithPayPal = "PayPal"
+        val methodPaymentWithSavedToken = "Saved card 4000 .... .... 0002"
 
         val paymentMethods: List<String> = listOf(
             methodPaymentName,
-            methodPaymentWithTokenName
+            methodPaymentWithTokenName,
+            methodPaymentWithPayPal,
+            methodPaymentWithSavedToken
         )
 
         val recyclerViewAdapter = PaymentMethodsRecyclerAdapter(paymentMethods)
@@ -93,7 +98,20 @@ class PaymentMethodFragment : Fragment() {
                 if (methodName == methodPaymentWithTokenName) {
                     activity.navigateTo(PaymentWithTokenFragment())
                 }
-            })
+            },
+            RecyclerViewClickListener() { methodName ->
+                if (methodName == methodPaymentWithPayPal) {
+                    activity.startService(TransactionService.getNewIntent(activity))
+                    onPaymentWithPayPalButtonClick(activity)
+                }
+            },
+            RecyclerViewClickListener() { methodName ->
+                if (methodName == methodPaymentWithSavedToken) {
+                    activity.startService(TransactionService.getNewIntent(activity))
+                    onPaymentWithTokenButtonClick(activity)
+                }
+            }
+        )
 
         subscribeToErrors()
 
@@ -109,6 +127,56 @@ class PaymentMethodFragment : Fragment() {
 
     private fun onPaymentButtonClick(activity: AppCompatActivity) {
         viewModel.pay(
+            activity = activity,
+            merchantName = "merchantName",
+            customer = Customer(
+                id = "656945944",
+                email = "cardpay.test.mobile@gmail.com"
+            ),
+            merchantOrder = MerchantOrder(
+                description = "merchant order description",
+                id = "merchant order id"
+            ),
+            paymentData = PaymentData(
+                amount = Amount(
+                    value = BigDecimal.valueOf(1.0),
+                    currency = Currency.getInstance("USD")
+                )
+            ),
+            launcher = launcherProvider.launcher
+        )
+    }
+
+    private fun onPaymentWithTokenButtonClick(activity: AppCompatActivity) {
+        viewModel.pay(
+            activity = activity,
+            merchantName = "merchantName",
+            customer = Customer(
+                id = "656945944",
+                email = "cardpay.test.mobile@gmail.com"
+            ),
+            merchantOrder = MerchantOrder(
+                description = "merchant order description",
+                id = "merchant order id"
+            ),
+            paymentData = PaymentData(
+                amount = Amount(
+                    value = BigDecimal.valueOf(1.0),
+                    currency = Currency.getInstance("USD")
+                )
+            ),
+            cardAccount = TokenPayment.CardAccount(
+                tokenData = TokenPayment.TokenData(
+                    token = "a3d85ac0-4268-bb12-a628-f1e13a4988d8",
+                    last4PanDigits = "0002"
+                )
+            ),
+            launcher = launcherProvider.launcher
+        )
+    }
+
+    private fun onPaymentWithPayPalButtonClick(activity: AppCompatActivity) {
+        viewModel.payWithPayPal(
             activity = activity,
             merchantName = "merchantName",
             customer = Customer(

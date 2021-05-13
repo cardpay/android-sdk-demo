@@ -15,6 +15,7 @@ import com.unlimint.sdk.api.model.Environments
 import com.unlimint.sdk.api.model.MerchantOrder
 import com.unlimint.sdk.api.model.scenario.payment.Payment
 import com.unlimint.sdk.api.model.scenario.payment.PaymentData
+import com.unlimint.sdk.api.model.scenario.payment.TokenPayment
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -46,6 +47,64 @@ class PaymentMethodScreenViewModel @Inject constructor(
                         merchantOrder,
                         paymentData,
                         null
+                    ),
+                    launcher = launcher,
+                    environment = Environments.SANDBOX
+                )
+                is Result.Error -> _onBindCardError.postValue(result.exception.message)
+            }
+        }
+    }
+
+    fun pay(
+        activity: AppCompatActivity,
+        merchantName: String,
+        customer: Customer,
+        merchantOrder: MerchantOrder,
+        paymentData: PaymentData,
+        cardAccount: TokenPayment.CardAccount,
+        launcher: ActivityResultLauncher<Intent>
+    ) {
+        viewModelScope.launch(Dispatchers.IO) {
+            val result = repository.getMobileToken()
+            when (result) {
+                is Result.Success -> MobileSdk.paymentForResult(
+                    activity = activity,
+                    mobileAuthorizationToken = result.data,
+                    tokenPaymentMethodData = TokenPayment.Data(
+                        merchantName,
+                        customer,
+                        merchantOrder,
+                        paymentData,
+                        cardAccount
+                    ),
+                    launcher = launcher,
+                    environment = Environments.SANDBOX
+                )
+                is Result.Error -> _onBindCardError.postValue(result.exception.message)
+            }
+        }
+    }
+
+    fun payWithPayPal(
+        activity: AppCompatActivity,
+        merchantName: String,
+        customer: Customer,
+        merchantOrder: MerchantOrder,
+        paymentData: PaymentData,
+        launcher: ActivityResultLauncher<Intent>
+    ) {
+        viewModelScope.launch(Dispatchers.IO) {
+            val result = repository.getMobileToken()
+            when (result) {
+                is Result.Success -> MobileSdk.paymentWithPayPalForResult(
+                    activity = activity,
+                    mobileAuthorizationToken = result.data,
+                    paymentMethodData = Payment.PayPalData(
+                        merchantName,
+                        customer,
+                        merchantOrder,
+                        paymentData
                     ),
                     launcher = launcher,
                     environment = Environments.SANDBOX
