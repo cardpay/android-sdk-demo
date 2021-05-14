@@ -62,7 +62,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.4.0-alpha02'
     testImplementation "junit:junit:$junit_version"
 
-    implementation 'com.unlimint.sdk:mobile-sdk-ui:1.7.0'
+    implementation 'com.unlimint.sdk:mobile-sdk-ui:1.7.0' вписать нужную версию
 
     implementation "androidx.fragment:fragment-ktx:$fragment_ktx_version"
 
