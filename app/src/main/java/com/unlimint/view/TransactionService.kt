@@ -13,7 +13,8 @@ import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.unlimint.App
-import com.unlimint.sdk.api.MobileSdk
+import com.unlimint.sdk.ui.api.UnlimintSdk
+import timber.log.Timber
 
 class TransactionService : Service() {
 
@@ -27,7 +28,7 @@ class TransactionService : Service() {
         LocalBroadcastManager.getInstance(this)
             .registerReceiver(
                 securityReceiver,
-                IntentFilter(MobileSdk.SecurityData.SECURITY_ACTION)
+                IntentFilter(UnlimintSdk.SecurityData.SECURITY_ACTION)
             )
 
         startForeground(1, getNotification())
@@ -45,16 +46,16 @@ class TransactionService : Service() {
     private class SDKSecurityBroadcastReceiver : BroadcastReceiver() {
         override fun onReceive(cxt: Context?, intent: Intent?) {
             val securityMessage =
-                when (intent?.getStringExtra(MobileSdk.SecurityData.SECURITY_EXTRA).orEmpty()) {
-                    MobileSdk.SecurityData.SECURE_EVENT -> "Security check is successfull"
-                    MobileSdk.SecurityData.MAYBE_INSECURE_EVENT -> "Device is maybe rooted"
-                    MobileSdk.SecurityData.INSECURE_EVENT -> "Device is insecure"
+                when (intent?.getStringExtra(UnlimintSdk.SecurityData.SECURITY_EXTRA).orEmpty()) {
+                    UnlimintSdk.SecurityData.SECURE_EVENT -> "Security check is successfull"
+                    UnlimintSdk.SecurityData.MAYBE_INSECURE_EVENT -> "Device is maybe rooted"
+                    UnlimintSdk.SecurityData.INSECURE_EVENT -> "Device is insecure"
                     else -> null
                 }
 
             val message = "Merchant message: $securityMessage"
             Toast.makeText(cxt, message, Toast.LENGTH_SHORT).show()
-            Log.d("UnlimintSdkApp", message)
+            Timber.tag("UnlimintSdkApp").d(message)
         }
     }
 
@@ -66,7 +67,7 @@ class TransactionService : Service() {
 
         override fun onReceive(cxt: Context?, intent: Intent?) {
             if (intent?.getBooleanExtra(EXTRA_KEY, false) == true) {
-                cxt?.let { MobileSdk.close(cxt) }
+                cxt?.let { UnlimintSdk.close(cxt) }
             }
         }
 

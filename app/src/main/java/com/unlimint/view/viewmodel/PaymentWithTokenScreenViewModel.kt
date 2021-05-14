@@ -9,12 +9,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.unlimint.data.Result
 import com.unlimint.domain.Repository
-import com.unlimint.sdk.api.MobileSdk
-import com.unlimint.sdk.api.model.Customer
-import com.unlimint.sdk.api.model.Environments
-import com.unlimint.sdk.api.model.MerchantOrder
-import com.unlimint.sdk.api.model.scenario.payment.PaymentData
-import com.unlimint.sdk.api.model.scenario.payment.TokenPayment
+import com.unlimint.sdk.ui.api.UnlimintSdk
+import com.unlimint.sdk.ui.api.model.Environments
+import com.unlimint.sdk.ui.api.model.TokenPayment
+import com.unlimint.sdk.ui.api.model.info.Customer
+import com.unlimint.sdk.ui.api.model.info.MerchantOrder
+import com.unlimint.sdk.ui.api.model.payment.PaymentData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -38,7 +38,7 @@ class PaymentWithTokenScreenViewModel @Inject constructor(
         viewModelScope.launch(Dispatchers.IO) {
             val result = repository.getMobileToken()
             when (result) {
-                is Result.Success -> MobileSdk.paymentForResult(
+                is Result.Success -> UnlimintSdk.paymentForResult(
                     activity = activity,
                     mobileAuthorizationToken = result.data,
                     tokenPaymentMethodData = TokenPayment.Data(

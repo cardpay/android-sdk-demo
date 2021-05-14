@@ -10,8 +10,8 @@ import androidx.fragment.app.add
 import androidx.fragment.app.commit
 import com.unlimint.R
 import com.unlimint.databinding.ActivityMainBinding
-import com.unlimint.sdk.api.MobileSdk
-import com.unlimint.sdk.api.exceptions.*
+import com.unlimint.sdk.ui.api.UnlimintSdk
+import com.unlimint.sdk.ui.api.exceptions.UnlimintSdkException
 import com.unlimint.utils.ActivityResultLauncherProvider
 
 class MainActivity : AppCompatActivity() {
@@ -49,14 +49,17 @@ fun AppCompatActivity.toast(message: String) {
 
 fun AppCompatActivity.handleCancellation(resultCode: Int, data: Intent?) {
     if (Activity.RESULT_CANCELED == resultCode) {
-        data?.getSerializableExtra(MobileSdk.ARG_EXCEPTION)?.let {
+        data?.getSerializableExtra(UnlimintSdk.ARG_EXCEPTION)?.let {
             when (it) {
-                is MobileSdkServiceUnavailableException -> toast("Server error")
-                is MobileSdkIllegalStateException -> toast("Internal error")
-                is MobileSdkBindingDeclineException -> toast("Failed binding")
-                is MobileSdkSecurityException -> toast(it.message!!)
-                is MobileSdkUnauthorizedException -> toast(it.message!!)
-                is MobileSdkPaymentDeclineException -> toast(it.message!!)
+                is UnlimintSdkException.ServiceUnavailable -> toast("Server error")
+                is UnlimintSdkException.BindingDecline -> toast("Binding failed")
+                is UnlimintSdkException.IllegalState -> toast("Illegal state error")
+                is UnlimintSdkException.InternalError -> toast("Internal error")
+                is UnlimintSdkException.InvalidData -> toast("Wrong card requisites")
+                is UnlimintSdkException.NetworkConnection -> toast("Network connection error")
+                is UnlimintSdkException.Security -> toast(it.message!!)
+                is UnlimintSdkException.Timeout -> toast(it.message!!)
+                is UnlimintSdkException.Unauthorized -> toast(it.message!!)
             }
         }
     }

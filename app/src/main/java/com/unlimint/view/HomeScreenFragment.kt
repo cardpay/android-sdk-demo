@@ -14,7 +14,7 @@ import com.unlimint.App
 import com.unlimint.R
 import com.unlimint.databinding.FragmentHomeScreenLayoutBinding
 import com.unlimint.navigation.NavigationHelper.navigateTo
-import com.unlimint.sdk.api.model.Customer
+import com.unlimint.sdk.ui.api.model.info.Customer
 import com.unlimint.utils.ActivityResultLauncherProvider
 import com.unlimint.utils.ActivityResultListener
 import com.unlimint.utils.setOnSingleClickListener

@@ -6,11 +6,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.*
 import com.unlimint.data.Result
 import com.unlimint.domain.Repository
-import com.unlimint.sdk.api.MobileSdk
-import com.unlimint.sdk.api.model.Customer
-import com.unlimint.sdk.api.model.Environments
-import com.unlimint.sdk.api.model.MerchantOrder
-import com.unlimint.sdk.api.model.scenario.binding.Binding
+import com.unlimint.sdk.ui.api.UnlimintSdk
+import com.unlimint.sdk.ui.api.model.Binding
+import com.unlimint.sdk.ui.api.model.Environments
+import com.unlimint.sdk.ui.api.model.info.Customer
+import com.unlimint.sdk.ui.api.model.info.MerchantOrder
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.util.*
@@ -34,7 +34,7 @@ class HomeScreenViewModel @Inject constructor(
         viewModelScope.launch(Dispatchers.IO) {
             val result = repository.getMobileToken()
             when (result) {
-                is Result.Success -> MobileSdk.bindNewCardForResult(
+                is Result.Success -> UnlimintSdk.bindNewCardForResult(
                     activity = activity,
                     mobileAuthorizationToken = result.data,
                     launcher = launcher,
