@@ -4,11 +4,8 @@ import android.app.Application
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.os.Build
-import androidx.multidex.MultiDexApplication
 import com.unlimint.di.component.ApplicationComponent
 import com.unlimint.di.component.DaggerApplicationComponent
-import org.koin.android.ext.koin.androidContext
-import org.koin.core.context.startKoin
 
 class App : Application() {
     var appComponent: ApplicationComponent? = null

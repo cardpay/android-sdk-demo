@@ -2,7 +2,7 @@ package com.unlimint.navigation
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
-import com.unlimint.sdk.R
+import com.unlimint.R
 
 object NavigationHelper {
 

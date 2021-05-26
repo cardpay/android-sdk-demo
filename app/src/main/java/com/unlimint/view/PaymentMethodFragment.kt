@@ -15,11 +15,11 @@ import com.unlimint.App
 import com.unlimint.R
 import com.unlimint.databinding.FragmentPaymentMethodsLayoutBinding
 import com.unlimint.navigation.NavigationHelper.navigateTo
-import com.unlimint.sdk.api.model.Customer
-import com.unlimint.sdk.api.model.MerchantOrder
-import com.unlimint.sdk.api.model.scenario.payment.Amount
-import com.unlimint.sdk.api.model.scenario.payment.PaymentData
-import com.unlimint.sdk.api.model.scenario.payment.TokenPayment
+import com.unlimint.sdk.ui.api.model.TokenPayment
+import com.unlimint.sdk.ui.api.model.info.Customer
+import com.unlimint.sdk.ui.api.model.info.MerchantOrder
+import com.unlimint.sdk.ui.api.model.payment.Amount
+import com.unlimint.sdk.ui.api.model.payment.PaymentData
 import com.unlimint.utils.ActivityResultLauncherProvider
 import com.unlimint.utils.ActivityResultListener
 import com.unlimint.utils.RecyclerViewClickListener
