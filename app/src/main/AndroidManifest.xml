@@ -27,14 +27,14 @@
         <service android:name=".view.TransactionService" />
 
         <activity
-            android:name="com.unlimint.sdk.scenario.binding.view.BindActivity"
+            android:name="com.unlimint.sdk.ui.scenario.binding.BindActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/MobileSdkStyle"
             android:windowSoftInputMode="adjustResize" />
 
         <activity
-            android:name="com.unlimint.sdk.scenario.payment.view.PaymentActivity"
+            android:name="com.unlimint.sdk.ui.scenario.payment.PaymentActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/MobileSdkStyle"
