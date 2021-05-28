@@ -14,7 +14,6 @@ import androidx.core.app.NotificationCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.unlimint.App
 import com.unlimint.sdk.ui.api.UnlimintSdk
-import timber.log.Timber
 
 class TransactionService : Service() {
 
@@ -55,7 +54,6 @@ class TransactionService : Service() {
 
             val message = "Merchant message: $securityMessage"
             Toast.makeText(cxt, message, Toast.LENGTH_SHORT).show()
-            Timber.tag("UnlimintSdkApp").d(message)
         }
     }
 
