@@ -35,6 +35,9 @@ fun onActivityResult(...) // wait for result here
 
 - [Technical documents](./Docs).
 
+- [UnlimintSDK-Core documentation](<./Code Documentation/UnlimintSDK-Core/index.md>).
+- [UnlimintSDK-UI documentation](<./Code Documentation/UnlimintSDK-UI/index.md>).
+
 ## Contribution Guide
 
 A guide to [submit issues](https://github.com/cardpay/android-sdk-demo/issues), to ask general questions, or to [open pull requests](https://github.com/cardpay/android-sdk-demo/pulls).
