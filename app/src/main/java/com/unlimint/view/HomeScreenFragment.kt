@@ -14,12 +14,17 @@ import com.unlimint.App
 import com.unlimint.R
 import com.unlimint.databinding.FragmentHomeScreenLayoutBinding
 import com.unlimint.navigation.NavigationHelper.navigateTo
+import com.unlimint.sdk.ui.api.model.TokenizedBankCardData
 import com.unlimint.sdk.ui.api.model.info.Customer
+import com.unlimint.sdk.ui.api.model.info.MerchantOrder
+import com.unlimint.sdk.ui.api.model.payment.Amount
+import com.unlimint.sdk.ui.api.model.payment.PaymentData
 import com.unlimint.utils.ActivityResultLauncherProvider
 import com.unlimint.utils.ActivityResultListener
 import com.unlimint.utils.setOnSingleClickListener
 import com.unlimint.view.viewmodel.HomeScreenViewModel
 import java.lang.IllegalStateException
+import java.math.BigDecimal
 import java.util.*
 import javax.inject.Inject
 
@@ -62,7 +67,9 @@ class HomeScreenFragment : Fragment() {
         binding.buyButton.isEnabled = true
 
         binding.buyButton.setOnClickListener {
-            activity.navigateTo(PaymentMethodFragment())
+            activity.startService(TransactionService.getNewIntent(activity))
+            onPayButtonClick(activity)
+//            activity.navigateTo(PaymentMethodFragment())
         }
         binding.bankCardButton.setOnSingleClickListener {
             activity.startService(TransactionService.getNewIntent(activity))
@@ -78,6 +85,35 @@ class HomeScreenFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun onPayButtonClick(activity: AppCompatActivity) {
+        val tokenData = TokenizedBankCardData.TokenData(
+            token = "a3d85ac0-4268-bb12-a628-f1e13a4988d8",
+            maskedPan = "0002"
+        )
+        val cardAccount = TokenizedBankCardData.CardAccount(tokenData)
+
+        viewModel.pay(
+            activity = activity,
+            merchantName = "merchantName",
+            customer = Customer(
+                id = "656945944",
+                email = "cardpay.test.mobile@gmail.com"
+            ),
+            launcher = launcherProvider.launcher,
+            cardAccount = arrayListOf(cardAccount),
+            merchantOrder = MerchantOrder(
+                description = "merchant order description",
+                id = "merchant order id"
+            ),
+            paymentData = PaymentData(
+                amount = Amount(
+                    value = BigDecimal.valueOf(1.0),
+                    currency = Currency.getInstance("USD")
+                )
+            )
+        )
     }
 
     private fun onBindButtonClick(activity: AppCompatActivity) {
