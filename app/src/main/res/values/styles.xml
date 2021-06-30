@@ -8,7 +8,14 @@
         <item name="toolbarStyle">@style/SdkDemoStyle.SdkDemoToolBarStyle</item>
     </style>
 
-    <style name="MobileSdkStyle" parent="Theme.MobileSdk.Light"></style>
+    <style name="MobileSdkStyle" parent="Theme.MobileSdk.Light">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
 
     <style name="SdkDemoStyle.SdkDemoToolBarStyle" parent="Widget.MaterialComponents.Toolbar">
         <item name="android:background">@color/colorPrimaryDark</item>
@@ -19,7 +26,7 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="SdkDemoStyle"/>
+    <style name="SdkDemoStyle" />
 
     <style name="SdkDemoStyle.TextView" parent="Widget.AppCompat.TextView">
         <item name="fontFamily">@font/inter_400_regular</item>
