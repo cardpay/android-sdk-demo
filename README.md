@@ -1,8 +1,22 @@
 Unlimint SDK
 ========
 
+Unlimint mobile SDK helps you to implement payments in your application. Release 1.8 version supports following methods:
+- binding card for further recurring payments,
+- checking which payment methods are available for you,
+- payment with new bank card,
+- payment with saved bank card (token),
+- payment with PayPal.
+
+Unlimint SDK has two parts: SDK UI and SDK Core.
+SDK UI already contains SDK Core. The former has user interface, root detection and simplified API. It securely collects and transmits user card data. The latter has only payment methods.
+We strongly recommend to use SDK UI if you don't have PCI DSS certificate.
+
+**Wise notice**:
+Unlimint mobile SDK UI just reminds you that the device is rooted. You can accept working on Rooted devices or reject a payment.
+
 ## Try Demo now 
-https://appdistribution.firebase.dev/i/fd06677d71f4734f
+[Download DemoApp](https://appdistribution.firebase.dev/i/fd06677d71f4734f)
 
 ## Requirements
 
@@ -33,10 +47,10 @@ fun onActivityResult(...) // wait for result here
 
 ## Documentation
 
-- [Technical documents](./Docs).
+- [Technical documents](https://github.com/cardpay/android-sdk-demo/wiki).
 
-- [UnlimintSDK-Core documentation](<./Code Documentation/UnlimintSDK-Core/index.md>).
 - [UnlimintSDK-UI documentation](<./Code Documentation/UnlimintSDK-UI/index.md>).
+- [UnlimintSDK-Core documentation](<./Code Documentation/UnlimintSDK-Core/index.md>).
 
 ## Contribution Guide
 
