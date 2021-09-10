@@ -16,7 +16,7 @@ We strongly recommend to use SDK UI if you don't have PCI DSS certificate.
 Unlimint mobile SDK UI just reminds you that the device is rooted. You can accept working on Rooted devices or reject a payment.
 
 ## Try Demo now 
-[Download DemoApp](https://appdistribution.firebase.dev/i/fd06677d71f4734f)
+[Download DemoApp](https://github.com/cardpay/android-sdk-demo/releases/download/1.8/app-1.8.2-release.apk)
 
 ## Requirements
 
