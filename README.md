@@ -22,7 +22,7 @@ Unlimint mobile SDK UI just reminds you that the device is rooted. You can accep
 
 - Android 4.4+
 
-## Installation
+## Installation SDK-UI (contains SDK-CORE inside)
 ```ruby
 repositories {
     ...
@@ -32,6 +32,19 @@ repositories {
 dependencies {
     ...
     implementation "com.unlimint.sdk:mobile-sdk:$sdk_version"
+    ...
+}
+``` 
+## Installation SDK-CORE
+```ruby
+repositories {
+    ...
+    
+    maven { url "https://repos.unlimint.io/repository/mobile-sdk/" }
+}
+dependencies {
+    ...
+    implementation "com.unlimint.sdk:mobile-sdk-core:$sdk_version"
     ...
 }
 ``` 
