@@ -13,12 +13,11 @@ import androidx.lifecycle.ViewModelProvider
 import com.unlimint.App
 import com.unlimint.R
 import com.unlimint.databinding.FragmentHomeScreenLayoutBinding
-import com.unlimint.navigation.NavigationHelper.navigateTo
-import com.unlimint.sdk.ui.api.model.TokenizedBankCardData
-import com.unlimint.sdk.ui.api.model.info.Customer
-import com.unlimint.sdk.ui.api.model.info.MerchantOrder
-import com.unlimint.sdk.ui.api.model.payment.Amount
-import com.unlimint.sdk.ui.api.model.payment.PaymentData
+import com.unlimint.sdk.ui.api.model.common.Customer
+import com.unlimint.sdk.ui.api.model.common.MerchantOrder
+import com.unlimint.sdk.ui.api.model.common.Amount
+import com.unlimint.sdk.ui.api.model.common.PaymentData
+import com.unlimint.sdk.ui.api.model.common.TokenizedCardOrder
 import com.unlimint.utils.ActivityResultLauncherProvider
 import com.unlimint.utils.ActivityResultListener
 import com.unlimint.utils.setOnSingleClickListener
@@ -67,12 +66,10 @@ class HomeScreenFragment : Fragment() {
         binding.buyButton.isEnabled = true
 
         binding.buyButton.setOnClickListener {
-            activity.startService(TransactionService.getNewIntent(activity))
             onPayButtonClick(activity)
 //            activity.navigateTo(PaymentMethodFragment())
         }
         binding.bankCardButton.setOnSingleClickListener {
-            activity.startService(TransactionService.getNewIntent(activity))
             onBindButtonClick(activity)
         }
         subscribeToErrors()
@@ -88,11 +85,11 @@ class HomeScreenFragment : Fragment() {
     }
 
     private fun onPayButtonClick(activity: AppCompatActivity) {
-        val tokenData = TokenizedBankCardData.TokenData(
+        val tokenData = TokenizedCardOrder.TokenData(
             token = "a3d85ac0-4268-bb12-a628-f1e13a4988d8",
             maskedPan = "0002"
         )
-        val cardAccount = TokenizedBankCardData.CardAccount(tokenData)
+        val cardAccount = TokenizedCardOrder.CardAccount(tokenData)
 
         viewModel.pay(
             activity = activity,
@@ -110,7 +107,7 @@ class HomeScreenFragment : Fragment() {
             paymentData = PaymentData(
                 amount = Amount(
                     value = BigDecimal.valueOf(1.0),
-                    currency = Currency.getInstance("USD")
+                    currency = Currency.getInstance("EUR")
                 )
             )
         )
@@ -119,7 +116,7 @@ class HomeScreenFragment : Fragment() {
     private fun onBindButtonClick(activity: AppCompatActivity) {
         viewModel.bindCard(
             activity = activity,
-            currency = Currency.getInstance("USD"),
+            currency = Currency.getInstance("EUR"),
             customer = Customer(
                 id = "656945944",
                 email = "cardpay.test.mobile@gmail.com"

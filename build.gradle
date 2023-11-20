@@ -28,11 +28,17 @@ buildscript {
     ext.gson_version = "2.8.6"
     ext.dagger_version = "2.29.1"
 
+    ext.sdk_version = "1.8.6"
+
     repositories {
         google()
-        jcenter()
+        mavenCentral()
 
-        maven { url "https://repos.unlimint.io/repository/mobile-sdk/" }
+        maven {
+            url 'https://nexus-ext-new.cardpay-aws.net/repository/mobile-sdk/'
+        }
+
+        maven { url "https://jitpack.io" }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:4.2.1'
@@ -43,9 +49,11 @@ buildscript {
 allprojects {
     repositories {
         google()
-        jcenter()
-
-        maven { url "https://repos.unlimint.io/repository/mobile-sdk/" }
+        mavenLocal()
+        mavenCentral()
+        maven {
+            url 'https://nexus-ext-new.cardpay-aws.net/repository/mobile-sdk/'
+        }
     }
 }
 

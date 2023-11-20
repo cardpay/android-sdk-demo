@@ -10,13 +10,17 @@ import androidx.lifecycle.viewModelScope
 import com.unlimint.data.Result
 import com.unlimint.domain.Repository
 import com.unlimint.sdk.ui.api.UnlimintSdk
-import com.unlimint.sdk.ui.api.model.*
-import com.unlimint.sdk.ui.api.model.info.Customer
-import com.unlimint.sdk.ui.api.model.info.MerchantOrder
-import com.unlimint.sdk.ui.api.model.payment.PaymentData
+import com.unlimint.sdk.ui.api.model.Environments
+import com.unlimint.sdk.ui.api.model.binding.Binding
+import com.unlimint.sdk.ui.api.model.common.BankCardOrder
+import com.unlimint.sdk.ui.api.model.common.Customer
+import com.unlimint.sdk.ui.api.model.common.MerchantOrder
+import com.unlimint.sdk.ui.api.model.common.PayPalOrder
+import com.unlimint.sdk.ui.api.model.common.PaymentData
+import com.unlimint.sdk.ui.api.model.common.TokenizedCardOrder
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import java.util.*
+import java.util.Currency
 import javax.inject.Inject
 
 class HomeScreenViewModel @Inject constructor(
@@ -48,10 +52,14 @@ class HomeScreenViewModel @Inject constructor(
                         currency = currency,
                         customer = customer,
                         merchantOrder = merchantOrder,
-                        cardAccount = cardAccount
+                        cardAccount = cardAccount,
+                        type = Binding.Type.PAYMENT
                     ),
-                    environment = Environments.SANDBOX
+                    environment = Environments.SANDBOX,
+                    showStatusScreen = true,        // optional
+                    customizations = arrayListOf()  // optional
                 )
+
                 is Result.Error -> _onBindCardError.postValue(result.exception.message)
             }
         }
@@ -63,24 +71,24 @@ class HomeScreenViewModel @Inject constructor(
         customer: Customer,
         merchantOrder: MerchantOrder,
         paymentData: PaymentData,
-        cardAccount: ArrayList<TokenizedBankCardData.CardAccount>,
+        cardAccount: ArrayList<TokenizedCardOrder.CardAccount>,
         launcher: ActivityResultLauncher<Intent>
     ) {
         viewModelScope.launch(Dispatchers.IO) {
-            val tokenizedBankCardData = TokenizedBankCardData(
+            val tokenizedBankCardData = TokenizedCardOrder(
                 merchantName,
                 customer,
                 merchantOrder,
                 paymentData,
                 cardAccount
             )
-            val bankCardData = BankCardData(
+            val bankCardData = BankCardOrder(
                 merchantName,
                 customer,
                 merchantOrder,
                 paymentData
             )
-            val payPalPaymentMethodData = PayPalData(
+            val payPalPaymentMethodData = PayPalOrder(
                 merchantName,
                 customer,
                 merchantOrder,
@@ -95,13 +103,17 @@ class HomeScreenViewModel @Inject constructor(
 
             val result = repository.getMobileToken()
             when (result) {
-                is Result.Success -> UnlimintSdk.payForResult(
+                is Result.Success -> UnlimintSdk.paymentForResult(
                     activity = activity,
                     mobileAuthorizationToken = result.data,
                     launcher = launcher,
                     paymentMethodsData = paymentMethodsData,
-                    environment = Environments.SANDBOX
+                    environment = Environments.SANDBOX,
+                    showStatusScreen = true,        // optional
+                    showAmountOnButton = true,      // optional
+                    customizations = arrayListOf()  // optional
                 )
+
                 is Result.Error -> _onPaymentError.postValue(result.exception.message)
             }
         }

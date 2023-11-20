@@ -56,7 +56,7 @@
         <!--Background-->
         <item name="defaultInputBackground">@drawable/sdk_demo_edit_text_background</item>
         <item name="disableInputBackground">@drawable/sdk_demo_edit_text_background_disable</item>
-        <item name="errorInputBackground">@drawable/edit_text_background_error</item>
+        <item name="errorInputBackground">@drawable/unlimint_edit_text_background_error</item>
         <!--Text color-->
         <item name="inputHintTextColor">@color/sdk_demo_color_field_placeholder</item>
         <item name="inputTextColor">@color/sdk_demo_color_text_primary</item>
