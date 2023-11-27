@@ -24,8 +24,6 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".view.TransactionService" />
-
         <activity
             android:name="com.unlimint.sdk.ui.scenario.binding.BindActivity"
             android:launchMode="singleInstance"
@@ -34,13 +32,11 @@
             android:windowSoftInputMode="adjustResize" />
 
         <activity
-            android:name="com.unlimint.sdk.ui.scenario.payment.PaymentActivity"
+            android:name="com.unlimint.sdk.ui.scenario.payment.OperationActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/MobileSdkStyle"
             android:windowSoftInputMode="adjustResize" />
-
-        <receiver android:name=".view.TransactionService$CloseSdkNotificationBroadcastReceiver"/>
     </application>
 
 </manifest>
